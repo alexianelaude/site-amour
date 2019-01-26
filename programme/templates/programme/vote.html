@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>{{ mesure.name }}</title>
+</head>
+<body>
+{% block title %}{{ mesure.name }}{% endblock %}
+
+{% block content %}
+{{ mesure.description }}
+    <form method="post"  action="{% url 'programme:vote' mesure.id %}">
+       {% csrf_token %}
+
+{{ form.as_p }}
+    <input type="submit" value="Envoyer" />
+    </form>
+{% endblock %}
+
+</body>
+</html>

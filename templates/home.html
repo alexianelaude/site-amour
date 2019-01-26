@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Titre du site</title>
+</head>
+<body>
+
+{% block title %}Bienvenue sur le site!{% endblock %}
+
+{% block content %}
+    {% if sauvegarde %}
+    Bienvenue {{ user.username }}, ton compte a bien été enregistré
+    {% endif %}
+{% endblock %}
+
+</body>
+</html>

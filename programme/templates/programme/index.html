@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Notre Programme</title>
+</head>
+<body>
+
+{% block title %}Notre Programme:{% endblock %}
+
+{% block content %}
+{% for mesure in mesure_list %}
+<h2>{{ mesure.name }}</h2>
+<p>{{ mesure.description }}</p>
+<a href = "{% url 'programme:detail' mesure.id %}">Voir les commentaires des mineurs</a><br />
+<a href = "{% url 'programme:vote' mesure.id %}">Je donne mon avis</a><br />
+{% endfor %}
+
+    <mark><a href = "{% url 'programme:boite_a_idee' %}">Boîte à idée</a></mark>
+{% endblock %}
+</body>
+</html>

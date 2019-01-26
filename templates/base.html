@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Titre du site</title>
+</head>
+<body>
+
+<h1>{% block title %}{% endblock %}<h1>
+
+<nav>
+    <ul>
+        <li><a href = "{% url 'home' %}">Retour à l'accueil</a></li>
+       <li><a href = "{% url 'events:index' %}">Événements</a></li>
+        <li><a href = "{% url 'programme:index' %}">Notre programme</a></li>
+        <li><a href = "{% url 'hotline:home' %}">Nos hotlines</a></li>
+    </ul>
+</nav>
+
+<div id = chat>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+</div>
+
+<div id = "poll">
+    Sondage du jour:
+    <ul>
+    {% for poll in poll_today %}
+        <li><a href = "{% url 'polls:detail' poll.id %}">{{ poll.question_text }}</a></li>
+        {% empty %}
+        Pas de sondage aujourd'hui, le VP geek se claque!
+        {% endfor %}
+    </ul>
+
+</div>
+
+<div id = "content">{% block content %}{% endblock %}</div>
+
+<div id = "chat">
+    <ul>
+    {% for chat in last_chats %}
+        <li>
+            {{ chat.user.username }}: {{ chat.message }} <sub>{{ chat.pub_date }}</sub>
+        </li>
+        {% empty %}
+        Personne n'a envoyé de message :(
+        {% endfor %}
+    </ul>
+    {% if user.is_authenticated %}
+    <form method="post"  action="{% url 'chat:new_chat' %}">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <input type="submit" value = "Envoyer"/>
+    </form>
+    {% endif %}
+
+</div>
+
+<div id = "events">
+    <ul>
+    {% for event in events_today %}
+        <li><a href = "{% url 'events:detail' event.id %}">{{ event.name }}</a> à {{ event.debut | time:"P" }}</li>
+        {% empty %}
+        Pas d'événements aujourd'hui
+        {% endfor %}
+    </ul>
+</div>
+
+
+<footer>
+<div id = "connexion">
+    {% if user.is_authenticated %}
+    <a href = "{% url 'deconnexion' %}">Se deconnecter</a>
+    {% else %}
+    <a href = "{% url 'connexion' %}">Se connecter</a>
+    ou <a href = "{% url 'new_user' %}">Créer un nouveau compte</a>
+{% endif %}
+    </div>
+
+<p><a href = "mailto:alexiane.laude@gmail.com">Nous contacter</a></p>
+</footer>
+
+</body>
+</html>

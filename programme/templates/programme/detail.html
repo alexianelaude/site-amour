@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>{{ mesure.name }}</title>
+</head>
+<body>
+{% block title %}{{ mesure.name }}{% endblock %}
+{% block content %}
+<p>{{ mesure.description }}<br />
+    Note moyenne: {{ moyenne }}</p>
+
+{% for reponse in reponses %}
+    {% if reponse.comment %}
+        <div class = "comment">{{ reponse.comment }}</div>
+    {% endif %}
+    {% empty %}
+    Personne n'a encore laissé de commentaire, <a href = "{% url 'programme:vote' mesure.id %}">soit le premier!</a>
+
+    {% endfor%}
+
+    <strong><a href = "{% url 'programme:vote' mesure.id %}">Je donne mon avis!</a></strong>
+{% endblock %}
+
+</body>
+</html>

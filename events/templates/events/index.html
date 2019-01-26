@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+    {% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Liste des événements{% endblock %}</title>
+</head>
+{% block content %}
+<h2>Événements terminés</h2>
+{% for event in past_events %}
+        <li><a href = "{% url 'events:detail' event.id %}" >{{ event.name }}</a> le {{ event.debut.date}} à
+            {{ event.debut | time:"P"}} </li>
+{% endfor %}
+  <h2>Événements en cours</h2>
+{% for event in current_events %}
+        <li><a href = "{% url 'events:detail' event.id %}" >{{ event.name }}</a> le {{ event.debut.date}} de
+            {{ event.debut | time:"P" }} à {{ event.fin | time:"P" }} </li>
+{% endfor %}
+<h2>Événements à venir</h2>
+{% for event in events_to_come %}
+            <li><a href = "{% url 'events:detail' event.id %}" >{{ event.name }}</a>
+                le {{ event.debut.date }} à {{ event.debut | time:"P" }} </li>
+{% endfor %}
+{% endblock %}
+</html>

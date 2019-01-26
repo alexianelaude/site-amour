@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Boite à idées</title>
+</head>
+<body>
+{% block title %}Boite à idées{% endblock %}
+
+{% block content %}
+
+<p>Blabla pour expliquer</p>
+        <form method="post"  action="{% url 'programme:boite_a_idee' %}">
+       {% csrf_token %}
+{{ form.as_p }}
+    <input type="submit" value="Submit" />
+        </form>
+
+
+{% endblock %}
+</body>
+</html>
