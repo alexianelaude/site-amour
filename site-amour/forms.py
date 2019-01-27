@@ -8,5 +8,12 @@ class ConnexionForm(forms.Form):
 class NewUserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['username','password']
+        fields = ['username','password','email']
         widgets = {'password': forms.PasswordInput()}
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if 'mines-paristech.fr' not in email:
+            raise forms.ValidationError("Il faut mettre son adresse des Mines!")
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("Cet email a déjà été pris")
+        return email

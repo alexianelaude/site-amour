@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 {% extends 'base.html' %}
+
 <head>
     <meta charset="UTF-8">
     <title>Titre du site</title>
 </head>
 <body>
 
-{% block title %}Bienvenue sur le site!{% endblock %}
+{% block title %}
+    {% if user.is_authenticated %}
+    Bienvenue sur le site {{ user.username }}!
+{% else %}
+Bienvenue sur le site!
+{% endif %}
+{% endblock %}
 
 {% block content %}
-    {% if sauvegarde %}
-    Bienvenue {{ user.username }}, ton compte a bien été enregistré
-    {% endif %}
+    <figure id = "photo_liste">
+    <!-- La photo avec tout le monde -->
+        <a href = "{% url 'team' %}"><img src = "media/images/hsv.jpg"/></a>
+    <figcaption>Clique pour découvrir notre team!</figcaption>
+    </figure>
+
+    <div id = "présentation">
+    <p>Blabla où on explique qui on est</p>
+    </div>
 {% endblock %}
 
 </body>

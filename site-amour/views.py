@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from profil.models import Profil
 from django.contrib.auth.models import User
+from django.contrib import messages
+
 
 def connexion(request):
     error = False
@@ -33,12 +35,13 @@ def new_user(request):
     if form.is_valid():
         username = form.cleaned_data["username"]
         password = form.cleaned_data["password"]
-        user = User.objects.create_user(username = username, password = password)
+        email = form.cleaned_data["email"]
+        user = User.objects.create_user(username = username, password = password, email = email)
         user.save()
         mineur = Profil(user=user)
         mineur.save()
-        sauvegarde = True
         user = authenticate(username=username, password=password)
         login(request, user)
-        return render(request, 'home.html',{'sauvegarde': sauvegarde})
+        messages.add_message(request, messages.SUCCESS, "Bienvenue %s, ton compte a bien été enregistré" % (user.username))
+        return render(request, 'home.html')
     return render(request, 'new_user.html', {'form': form})

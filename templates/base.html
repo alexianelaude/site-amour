@@ -14,8 +14,13 @@
        <li><a href = "{% url 'events:index' %}">Événements</a></li>
         <li><a href = "{% url 'programme:index' %}">Notre programme</a></li>
         <li><a href = "{% url 'hotline:home' %}">Nos hotlines</a></li>
+        <li><a href = "{% url 'team' %}">Qui sommes nous?</a></li>
     </ul>
 </nav>
+
+<div id = logo>
+    <!-- On insère le logo ici -->
+</div>
 
 <div id = chat>
 {% if messages %}
@@ -54,7 +59,7 @@
     {% if user.is_authenticated %}
     <form method="post"  action="{% url 'chat:new_chat' %}">
        {% csrf_token %}
-       {{ form.as_p }}
+       {{ chat_form.as_p }}
        <input type="submit" value = "Envoyer"/>
     </form>
     {% endif %}
