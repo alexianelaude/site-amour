@@ -3,6 +3,9 @@ import datetime
 from datetime import date
 from .models import Event
 from django.utils import timezone
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Create your views here.
 def index(request):
@@ -13,4 +16,7 @@ def index(request):
 
 def detail(request,event_id):
     event = get_object_or_404(Event, id = event_id)
-    return render(request, 'events/detail.html', {'event':event})
+    if event.gallerie:
+        images = os.listdir(event.gallerie)
+        full_path = os.path.join(BASE_DIR, event.gallerie)
+    return render(request, 'events/detail.html',locals())
