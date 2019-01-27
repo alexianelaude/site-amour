@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="825f643b-6668-4b10-bc3c-93a249969373" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/team.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/gallery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/partners.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat/context_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/context_processors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotline/templates/hotline/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/hotline/templates/hotline/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site-amour/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/site-amour/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/context_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/events/context_processors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/events/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/hsv.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/hsv.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site-amour/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/site-amour/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site-amour/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/site-amour/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site-amour/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/site-amour/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
     </list>
@@ -24,8 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/site-amour/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="152" column="1" selection-start-line="152" selection-start-column="1" selection-end-line="152" selection-end-column="1" />
+            <state relative-caret-position="2100">
+              <caret line="140" selection-start-line="140" selection-end-line="140" />
             </state>
           </provider>
         </entry>
@@ -33,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+            <state relative-caret-position="387">
+              <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -42,17 +42,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="464">
+              <caret line="117" column="7" lean-forward="true" selection-start-line="117" selection-start-column="7" selection-end-line="117" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/profil/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -61,38 +61,45 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/media/images/hsv.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/new_user.html">
+        <entry file="file://$PROJECT_DIR$/site-amour/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/site-amour/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="46" column="40" lean-forward="true" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+            <state relative-caret-position="314">
+              <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
               <folding>
-                <element signature="e#0#59#0" expanded="true" />
+                <element signature="e#634#666#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/site-amour/urls.py">
+        <entry file="file://$PROJECT_DIR$/templates/gallery.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="375">
+              <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/events/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
-                <element signature="e#634#666#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/events/context_processors.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,16 +109,16 @@
         <entry file="file://$PROJECT_DIR$/templates/team.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+              <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hotline/views.py">
+        <entry file="file://$PROJECT_DIR$/templates/partners.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="11" selection-start-line="3" selection-end-line="4" />
+            <state relative-caret-position="255">
+              <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -135,15 +142,19 @@
         <option value="$PROJECT_DIR$/chat/context_processors.py" />
         <option value="$PROJECT_DIR$/site-amour/forms.py" />
         <option value="$PROJECT_DIR$/site-amour/views.py" />
-        <option value="$PROJECT_DIR$/site-amour/urls.py" />
         <option value="$PROJECT_DIR$/templates/team.html" />
+        <option value="$PROJECT_DIR$/templates/partners.html" />
+        <option value="$PROJECT_DIR$/events/context_processors.py" />
+        <option value="$PROJECT_DIR$/templates/gallery.html" />
+        <option value="$PROJECT_DIR$/site-amour/urls.py" />
         <option value="$PROJECT_DIR$/site-amour/settings.py" />
         <option value="$PROJECT_DIR$/templates/home.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/events/models.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="85" />
     <option name="y" value="23" />
     <option name="width" value="1260" />
@@ -164,18 +175,7 @@
             <path>
               <item name="site-amour" type="b2602c69:ProjectViewProjectNode" />
               <item name="site-amour" type="462c0819:PsiDirectoryNode" />
-              <item name="hotline" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="site-amour" type="b2602c69:ProjectViewProjectNode" />
-              <item name="site-amour" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="site-amour" type="b2602c69:ProjectViewProjectNode" />
-              <item name="site-amour" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="events" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="site-amour" type="b2602c69:ProjectViewProjectNode" />
@@ -208,9 +208,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/images" />
       <recent name="$PROJECT_DIR$/media/images" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/media/images" />
       <recent name="$PROJECT_DIR$/static/images" />
     </key>
   </component>
@@ -262,16 +264,15 @@
       <option name="presentableId" value="Default" />
       <updated>1548494876073</updated>
       <workItem from="1548494878224" duration="2345000" />
-      <workItem from="1548582799945" duration="2081000" />
+      <workItem from="1548582799945" duration="6834000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4426000" />
+    <option name="totallyTimeSpent" value="9179000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="85" y="23" width="1260" height="693" extended-state="1" />
-    <editor active="true" />
+    <frame x="85" y="23" width="1260" height="693" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2536946" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -356,7 +357,7 @@
     <entry file="file://$PROJECT_DIR$/site-amour/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
-          <caret line="46" column="40" lean-forward="true" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+          <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
           </folding>
@@ -370,17 +371,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/hsv.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profil/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/team.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partners.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/gallery.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/site-amour/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="314">
+          <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
           <folding>
             <element signature="e#634#666#0" expanded="true" />
           </folding>
@@ -389,32 +417,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/site-amour/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="152" column="1" selection-start-line="152" selection-start-column="1" selection-end-line="152" selection-end-column="1" />
+        <state relative-caret-position="2100">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/media/images/hsv.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+        <state relative-caret-position="387">
+          <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="464">
+          <caret line="117" column="7" lean-forward="true" selection-start-line="117" selection-start-column="7" selection-end-line="117" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/profil/models.py">
+    <entry file="file://$PROJECT_DIR$/events/context_processors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="135">
+          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/events/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>

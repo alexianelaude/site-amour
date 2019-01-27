@@ -2,6 +2,8 @@
 <html lang="en">
 {% extends 'base.html' %}
 
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <title>Titre du site</title>
@@ -19,7 +21,7 @@ Bienvenue sur le site!
 {% block content %}
     <figure id = "photo_liste">
     <!-- La photo avec tout le monde -->
-        <a href = "{% url 'team' %}"><img src = "media/images/hsv.jpg"/></a>
+        <a href = "{% url 'team' %}"><img src = "{% static 'images/hsv.jpg' %}"/></a>
     <figcaption>Clique pour découvrir notre team!</figcaption>
     </figure>
 
@@ -27,6 +29,10 @@ Bienvenue sur le site!
     <p>Blabla où on explique qui on est</p>
     </div>
 {% endblock %}
+
+<footer>
+    {% block retour %}{% endblock %}
+</footer>
 
 </body>
 </html>

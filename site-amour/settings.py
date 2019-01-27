@@ -67,6 +67,7 @@ TEMPLATES = [
             'context_processors': [
                 'polls.context_processors.poll_today',
                 'events.context_processors.events_today',
+                'events.context_processors.all_events',
                 'chat.context_processors.chat_infos',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -138,7 +139,7 @@ STATICFILES_DIRS = (
 )
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = '/media/'
 

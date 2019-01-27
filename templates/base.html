@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <title>Titre du site</title>
@@ -10,11 +13,12 @@
 
 <nav>
     <ul>
-        <li><a href = "{% url 'home' %}">Retour à l'accueil</a></li>
        <li><a href = "{% url 'events:index' %}">Événements</a></li>
         <li><a href = "{% url 'programme:index' %}">Notre programme</a></li>
         <li><a href = "{% url 'hotline:home' %}">Nos hotlines</a></li>
         <li><a href = "{% url 'team' %}">Qui sommes nous?</a></li>
+        <li><a href = "{% url 'partners' %}">Nos partenaires</a></li>
+        <li><a href = "{% url 'gallery' %}">Gallerie</a></li>
     </ul>
 </nav>
 
@@ -78,6 +82,12 @@
 
 
 <footer>
+{% block retour %}
+<div id = "retour accueil">
+    <a href = "{% url 'home' %}">Retour à l'accueil</a>
+</div>
+{% endblock %}
+
 <div id = "connexion">
     {% if user.is_authenticated %}
     <a href = "{% url 'deconnexion' %}">Se deconnecter</a>
@@ -87,7 +97,21 @@
 {% endif %}
     </div>
 
-<p><a href = "mailto:alexiane.laude@gmail.com">Nous contacter</a></p>
+<div id = "social_networks">
+    <ul>
+        <li>
+<a href = "mailto:alexiane.laude@mines-paristech.fr"><img src = "{% static "images/zimbra_logo.png" %}" title = "Envoie nous un mail"/></a>
+        </li>
+<li>
+<a href = "https://www.facebook.com/groups/2518365178489027/?fref=nf&__xts__[0]=68.ARC7aL858EyPTEBjrYl1ttvvdLfoPzsEzplnEBXlAxJFI6e9ov19p4TGI91T7sSy9qeDs7BCC34mT6ZZ4qNkJkwvIqhFDkh_ynk7aJLhOMaaspBuktZMDmbn-npjWanMKYIUyBvzymCFJK0r-xUEMK5lwsEFhQ7rO_FjnoXK72iBXEdAoPeyJbXewY4a8sZX88New1rndUjuRYp2ezVT7YRFoj9eeMDrZP75XuQv7mjF9rc&__tn__=C-RH-R"
+><img src = "{% static "images/fb_logo.png" %}" title = "Notre Facebook"/></a>
+</li>
+    </ul>
+</div>
+
+<div id = "bandeau">
+    <!-- En pied de page, bandeau publicitaire avec logo de nos principaux partenaires + lien vers la page partenaires -->
+</div>
 </footer>
 
 </body>

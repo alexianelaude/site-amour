@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Gallerie</title>
+</head>
+<body>
+{% block title %}Toutes nos photos et vidéos{% endblock %}
+
+{% block content %}
+<!--On mettra toutes les images/vidéos/teasers ...-->
+{% for event in events %}
+{% if event.gallerie %}
+<div class = "event_gallery">
+    <h2>{{ event.name }}</h2>
+    {% for image in event.gallerie %}
+    <img src = image />
+    {% endfor %}
+{% endif %}
+{% endfor %}
+</div>
+
+{% endblock %}
+</body>
+</html>

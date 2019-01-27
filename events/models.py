@@ -7,5 +7,5 @@ class Event(models.Model):
     slug = models.SlugField(max_length = 50)
     debut = models.DateTimeField(default = timezone.now)
     fin = models.DateTimeField(default = timezone.now)
-    gallerie = models.FilePathField(path = '/media/photos', null = True, blank = True)
+    gallerie = models.FilePathField(path = '/static/', null = True, blank = True)
     description = models.TextField(blank = True, null = True)
