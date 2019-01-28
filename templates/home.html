@@ -21,7 +21,7 @@ Bienvenue sur le site!
 {% block content %}
     <figure id = "photo_liste">
     <!-- La photo avec tout le monde -->
-        <a href = "{% url 'team' %}"><img src = "{% static 'images/hsv.jpg' %}"/></a>
+        <a href = "{% url 'team:index' %}"><img src = "{% static 'images/hsv.jpg' %}"/></a>
     <figcaption>Clique pour découvrir notre team!</figcaption>
     </figure>
 

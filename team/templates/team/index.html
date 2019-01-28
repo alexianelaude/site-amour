@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Notre équipe</title>
+</head>
+<body>
+{% block title %}Notre équipe{% endblock %}
+
+{% block content %}
+{% for listeux in listeux_list %}
+<h3>{{ listeux.name }}</h3>
+<h4>{{ listeux.post }}</h4>
+
+<p>{{ listeux.description }}</p>
+
+{% endfor %}
+{% endblock %}
+
+</body>
+</html>
