@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load static %}
 
 <h1>{% block title %}{{ event.name }}{% endblock %}</h1>
 
@@ -8,11 +7,12 @@
   de {{ event.debut| time:"P" }} à {{ event.fin | time:"P" }}
 <p>{{ event.description }}</p>
 
-    {% if images %}
-    {% for image in images %}
-        <img src = "{% static '{{ event.gallerie }}/{{ image }}' %}"/>
-        {{ event.gallerie }}/{{ image }}
+    <div id = event_gallery>
+    {% if event.gallerie %}
+    {% for image in event.images %}
+        <img src = "/{{ event.gallerie }}/{{ image }}"/>
     {% endfor %}
     {% endif %}
+    </div>
 {% endblock %}
 

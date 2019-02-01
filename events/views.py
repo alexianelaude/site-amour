@@ -17,6 +17,5 @@ def index(request):
 def detail(request,event_id):
     event = get_object_or_404(Event, id = event_id)
     if event.gallerie:
-        images = os.listdir(event.gallerie)
         full_path = os.path.join(BASE_DIR, event.gallerie)
     return render(request, 'events/detail.html',locals())

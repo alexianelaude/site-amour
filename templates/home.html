@@ -26,7 +26,26 @@ Bienvenue sur le site!
     </figure>
 
     <div id = "présentation">
+    <h2>Le BDE??</h2>
     <p>Blabla où on explique qui on est</p>
+    </div>
+
+    <div id = "hotlines">
+    <h2>Nos hotlines:</h2>
+    <p>Bla bla comme quoi elles sont qualis</p>
+    <a href = "{% url 'hotline:home' %}">Commandez ici!</a>
+    </div>
+
+    <div id = "programme">
+    <h2>Notre programme:</h2>
+    <p>En quelques mots</p>
+    <a href = "{% url 'programme:index' %}">Le programme en détail</a>
+    </div>
+
+    <div id = "partenaires">
+    <h2>Nos partenaires:</h2>
+    <p>Petit merci</p>
+    <a href = "{% url 'partners' %}">Tous nos partenaires</a>
     </div>
 {% endblock %}
 

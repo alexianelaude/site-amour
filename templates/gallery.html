@@ -14,8 +14,8 @@
 {% if event.gallerie %}
 <div class = "event_gallery">
     <h2>{{ event.name }}</h2>
-    {% for image in event.gallerie %}
-    <img src = "image" />
+    {% for image in event.images %}
+    <img src = "/{{ event.gallerie }}/{{ image }}" />
     {% endfor %}
 {% endif %}
 {% endfor %}
