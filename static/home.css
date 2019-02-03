@@ -1,0 +1,9 @@
+ #photo_liste figure {
+    width:75%;
+    padding:0;
+}
+
+
+#photo_liste figcaption {
+    text-align: center;
+}

@@ -5,8 +5,11 @@
 
 <head>
     <meta charset="UTF-8">
+<link rel="stylesheet" href = "{% static 'events.css' %}"/>
+
     <title>{% block title %}Liste des événements{% endblock %}</title>
 </head>
+
 {% block content %}
 <h2>Événements terminés</h2>
 {% for event in past_events %}

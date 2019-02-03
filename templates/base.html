@@ -5,13 +5,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'main_style.css' %}" />
+
+
     <title>Titre du site</title>
 </head>
+
 <body>
 
-<h1>{% block title %}{% endblock %}<h1>
+<div id = "container">
+<header>
+    <h1>{% block title %}{% endblock %}</h1>
 
-<nav>
+<div class = "topnav">
     <ul>
        <li><a href = "{% url 'events:index' %}">Événements</a></li>
         <li><a href = "{% url 'team:index' %}">Qui sommes-nous?</a></li>
@@ -20,13 +26,15 @@
         <li><a href = "{% url 'partners' %}">Nos partenaires</a></li>
         <li><a href = "{% url 'gallery' %}">Gallerie</a></li>
     </ul>
-</nav>
+</div>
 
-<div id = logo>
+<div id = "logo">
     <!-- On insère le logo ici -->
 </div>
 
-<div id = chat>
+</header>
+
+<div>
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
@@ -36,8 +44,10 @@
 {% endif %}
 </div>
 
-<div id = "poll">
-    Sondage du jour:
+<section>
+    <aside>
+    <div id = "poll">
+        <h2>Sondage du jour:</h2>
     <ul>
     {% for poll in poll_today %}
         <li><a href = "{% url 'polls:detail' poll.id %}">{{ poll.question_text }}</a></li>
@@ -45,12 +55,19 @@
         Pas de sondage aujourd'hui, le VP geek se claque!
         {% endfor %}
     </ul>
+    </div>
 
+<div id = "events">
+    <ul>
+    {% for event in events_today %}
+        <li><a href = "{% url 'events:detail' event.id %}">{{ event.name }}</a> à {{ event.debut | time:"P" }}</li>
+        {% empty %}
+        Pas d'événements aujourd'hui
+        {% endfor %}
+    </ul>
 </div>
 
-<div id = "content">{% block content %}{% endblock %}</div>
-
-<div id = "chat">
+<div  id = "chat">
     <ul>
     {% for chat in last_chats %}
         <li>
@@ -69,19 +86,19 @@
     {% endif %}
 
 </div>
-
-<div id = "events">
-    <ul>
-    {% for event in events_today %}
-        <li><a href = "{% url 'events:detail' event.id %}">{{ event.name }}</a> à {{ event.debut | time:"P" }}</li>
-        {% empty %}
-        Pas d'événements aujourd'hui
-        {% endfor %}
-    </ul>
-</div>
+    </aside>
 
 
-<footer>
+<article>{% block content %}
+
+{% endblock %}
+</article>
+
+</section>
+
+
+<div class="footer">
+
 {% block retour %}
 <div id = "retour accueil">
     <a href = "{% url 'home' %}">Retour à l'accueil</a>
@@ -97,7 +114,7 @@
 {% endif %}
     </div>
 
-<div id = "social_networks">
+<div id = "navlist">
     <ul>
         <li>
 <a href = "mailto:alexiane.laude@mines-paristech.fr"><img src = "{% static "images/zimbra_logo.png" %}" title = "Envoie nous un mail"/></a>
@@ -112,7 +129,9 @@
 <div id = "bandeau">
     <!-- En pied de page, bandeau publicitaire avec logo de nos principaux partenaires + lien vers la page partenaires -->
 </div>
-</footer>
+</div>
+
+</div>
 
 </body>
 </html>

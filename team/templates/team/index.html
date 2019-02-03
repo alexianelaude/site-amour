@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends 'base.html' %}
-<head>
+
+{% load static %}
+
     <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "{% static 'team.css' %}" />
+    <link rel = "stylesheet" href = "{% static 'main_style.css' %}" />
+
     <title>Notre équipe</title>
 </head>
 <body>
 {% block title %}Notre équipe{% endblock %}
 
 {% block content %}
+    <div class = "gallery">
 {% for listeux in listeux_list %}
-<h3>{{ listeux.name }}</h3>
-<h4>{{ listeux.post }}</h4>
+
 
     <img src = "{{ listeux.image.url }}"/>
-<p>{{ listeux.description }}</p>
+    <div class = "pres">
+        <h3>{{ listeux.name }}</h3>
+    <p>{{ listeux.post }}</p>
+    </div>
 
 {% endfor %}
+    </div>
 {% endblock %}
 
 </body>
