@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="825f643b-6668-4b10-bc3c-93a249969373" name="Default Changelist" comment="" />
+    <list default="true" id="825f643b-6668-4b10-bc3c-93a249969373" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/hotline/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/hotline/forms.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,12 +21,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hotline/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hotline/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,6 +141,7 @@
         <option value="$PROJECT_DIR$/static/main_style.css" />
         <option value="$PROJECT_DIR$/team/templates/team/index.html" />
         <option value="$PROJECT_DIR$/static/team.css" />
+        <option value="$PROJECT_DIR$/hotline/forms.py" />
       </list>
     </option>
   </component>
@@ -279,12 +294,12 @@
       <workItem from="1548582799945" duration="6834000" />
       <workItem from="1548597270268" duration="18247000" />
       <workItem from="1549138798958" duration="199000" />
-      <workItem from="1549139002414" duration="9616000" />
+      <workItem from="1549139002414" duration="10270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37241000" />
+    <option name="totallyTimeSpent" value="37895000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="103" y="23" width="1260" height="693" extended-state="0" />
@@ -317,9 +332,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/site-amour/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -672,6 +684,16 @@
         <state>
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hotline/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>

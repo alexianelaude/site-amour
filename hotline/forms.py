@@ -1,9 +1,10 @@
 from django import forms
 from django.utils import timezone
+from django.contrib.admin import widgets
 
 class HotlineForm(forms.Form):
     order = forms.ChoiceField(choices = [('crepes','des crêpes'),('bisous','des bisous')], label = 'Je désire:', widget = forms.RadioSelect)
-    delivery_time = forms.DateTimeField(label = 'Heure de livraison', widget = forms.widgets.DateTimeInput)
+    delivery_time = forms.DateTimeField(label = 'Heure de livraison', widget = widgets.AdminSplitDateTime())
     delivery_place = forms.CharField(label = 'Lieu de livraison')
     comment = forms.CharField()
 
