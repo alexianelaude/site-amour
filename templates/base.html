@@ -4,35 +4,89 @@
 {% load static %}
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'main_style.css' %}" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
 
-    <title>Titre du site</title>
+    <!-- Custom Fonts -->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>-->
+
+    <link rel="stylesheet" href="https://use.typekit.net/vfj1lfm.css">
+    <!-- Plugin CSS -->
+    <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="{% static 'css/creative.css' %}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <title>Mine'Light</title>
 </head>
 
-<body>
+<body id="page-top">
 
-<div id = "container">
-<header>
-    <h1>{% block title %}{% endblock %}</h1>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="{% url 'team:index' %}">{% if user.is_authenticated %}
+                    Bienvenue sur le site {{ user.username }}!
+                    {% else %}
+                    Bienvenue sur le site!
+                    {% endif %}
+                </a>
+            </div>
 
-<div class = "topnav">
-    <ul>
-       <li><a href = "{% url 'events:index' %}">Événements</a></li>
-        <li><a href = "{% url 'team:index' %}">Qui sommes-nous?</a></li>
-        <li><a href = "{% url 'programme:index' %}">Notre programme</a></li>
-        <li><a href = "{% url 'hotline:home' %}">Nos hotlines</a></li>
-        <li><a href = "{% url 'partners' %}">Nos partenaires</a></li>
-        <li><a href = "{% url 'gallery' %}">Gallerie</a></li>
-    </ul>
-</div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href = "{% url 'home' %}">Accueil</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'events:index' %}">Evénements</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'team:index' %}">Qui sommes-nous?</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'programme:index' %}">Notre programme</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'hotline:home' %}">Nos hotlines</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'partners' %}">Nos partenaires</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'gallery' %}">Galerie</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
 
 <div id = "logo">
     <!-- On insère le logo ici -->
 </div>
 
-</header>
 
 <div>
 {% if messages %}
@@ -45,9 +99,9 @@
 </div>
 
 <section>
-    <aside>
+<div class="sidebar">
     <div id = "poll">
-        <h2>Sondage du jour:</h2>
+        <h3>Sondage du jour:</h3>
     <ul>
     {% for poll in poll_today %}
         <li><a href = "{% url 'polls:detail' poll.id %}">{{ poll.question_text }}</a></li>
@@ -57,74 +111,49 @@
     </ul>
     </div>
 
-<div id = "events">
-    <ul>
-    {% for event in events_today %}
-        <li><a href = "{% url 'events:detail' event.id %}">{{ event.name }}</a> à {{ event.debut | time:"P" }}</li>
-        {% empty %}
-        Pas d'événements aujourd'hui
-        {% endfor %}
-    </ul>
+    <div id = "events">
+        <h3>Evénements du jour:</h3>
+        <ul>
+        {% for event in events_today %}
+            <li><a href = "{% url 'events:detail' event.id %}">{{ event.name }}</a> à {{ event.debut | time:"P" }}</li>
+            {% empty %}
+            Pas d'événements aujourd'hui
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div  id = "chat">
+        <h3>Chat:</h3>
+        <ul align="left">
+            {% for chat in last_chats %}
+                <li>
+                    <b>{{ chat.user.username }}:</b> {{ chat.message }} <sub>{{ chat.pub_date }}</sub> 
+                </li>
+                {% empty %}
+                 Personne n'a envoyé de message :(
+            {% endfor %}
+         </ul>
+        {% if user.is_authenticated %}
+            <form method="post"  action="{% url 'chat:new_chat' %}">
+                 {% csrf_token %}
+                {{ chat_form.as_p }}
+                <input type="submit" value = "Envoyer"/>
+                </form>
+        {% endif %}
+    </div>
 </div>
 
-<div  id = "chat">
-    <ul>
-    {% for chat in last_chats %}
-        <li>
-            {{ chat.user.username }}: {{ chat.message }} <sub>{{ chat.pub_date }}</sub>
-        </li>
-        {% empty %}
-        Personne n'a envoyé de message :(
-        {% endfor %}
-    </ul>
-    {% if user.is_authenticated %}
-    <form method="post"  action="{% url 'chat:new_chat' %}">
-       {% csrf_token %}
-       {{ chat_form.as_p }}
-       <input type="submit" value = "Envoyer"/>
-    </form>
-    {% endif %}
+<div class="content">
+  {% block content %}
 
+  {% endblock %}
 </div>
-    </aside>
 
-
-<article>{% block content %}
-
-{% endblock %}
-</article>
 
 </section>
 
 
 <div class="footer">
-
-{% block retour %}
-<div id = "retour accueil">
-    <a href = "{% url 'home' %}">Retour à l'accueil</a>
-</div>
-{% endblock %}
-
-<div id = "connexion">
-    {% if user.is_authenticated %}
-    <a href = "{% url 'deconnexion' %}">Se deconnecter</a>
-    {% else %}
-    <a href = "{% url 'connexion' %}">Se connecter</a>
-    ou <a href = "{% url 'new_user' %}">Créer un nouveau compte</a>
-{% endif %}
-    </div>
-
-<div id = "navlist">
-    <ul>
-        <li>
-<a href = "mailto:alexiane.laude@mines-paristech.fr"><img src = "{% static "images/zimbra_logo.png" %}" title = "Envoie nous un mail"/></a>
-        </li>
-<li>
-<a href = "https://www.facebook.com/groups/2518365178489027/?fref=nf&__xts__[0]=68.ARC7aL858EyPTEBjrYl1ttvvdLfoPzsEzplnEBXlAxJFI6e9ov19p4TGI91T7sSy9qeDs7BCC34mT6ZZ4qNkJkwvIqhFDkh_ynk7aJLhOMaaspBuktZMDmbn-npjWanMKYIUyBvzymCFJK0r-xUEMK5lwsEFhQ7rO_FjnoXK72iBXEdAoPeyJbXewY4a8sZX88New1rndUjuRYp2ezVT7YRFoj9eeMDrZP75XuQv7mjF9rc&__tn__=C-RH-R"
-><img src = "{% static "images/fb_logo.png" %}" title = "Notre Facebook"/></a>
-</li>
-    </ul>
-</div>
 
 <div id = "bandeau">
     <!-- En pied de page, bandeau publicitaire avec logo de nos principaux partenaires + lien vers la page partenaires -->
@@ -132,6 +161,42 @@
 </div>
 
 </div>
+
+<aside class="bg-dark">
+    <div class="container text-center">
+
+        <div class="row">
+                {% if user.is_authenticated %}
+                <a href = "{% url 'deconnexion' %}" class="btn btn-default btn-xl sr-button">Se déconnecter</a>
+
+                {% else %}
+                
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <a href = "{% url 'connexion' %}" class="btn btn-default btn-xl sr-button">Se connecter</a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <a href = "{% url 'new_user' %}" class="btn btn-default btn-xl sr-button">Créer un nouveau compte</a>
+                </div>
+
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</aside>
+<!-- jQuery -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="{% static 'vendor/scrollreveal/scrollreveal.min.js' %}"></script>
+    
+
+    <!-- Theme JavaScript -->
+    <script src="{% static 'js/creative.min.js' %}"></script>
 
 </body>
 </html>
