@@ -10,6 +10,7 @@ class NewUserForm(forms.ModelForm):
         model = User
         fields = ['username','password','email']
         widgets = {'password': forms.PasswordInput()}
+
     def clean_email(self):
         email = self.cleaned_data['email']
         if 'mines-paristech.fr' not in email:

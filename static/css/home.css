@@ -63,7 +63,10 @@ aside {
   border: 1px solid black;
   border-radius: 25px;
   height: 100%;
+  list-style-type: none;
+  overflow: scroll;
 }
+
 
 .no-padding {
   padding: 0;
