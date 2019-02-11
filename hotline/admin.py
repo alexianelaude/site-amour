@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Hotline
+from .models import Crepes
 
 # Register your models here.
-admin.site.register(Hotline)
+admin.site.register(Crepes)

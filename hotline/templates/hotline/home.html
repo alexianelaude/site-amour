@@ -9,14 +9,7 @@
 {% block title %}Nos hotlines{% endblock %}
 
 {% block content %}
-    <h3>Passez commande maintenant:</h3>
-    <p>
- <form method="post"  action="{% url 'hotline:home' %}">
-     {% csrf_token %}
-{{ form.as_p }}
-    <input type="submit" value="Commander" />
-        </form>
-    </p>
+    <!--Remettre les images stylées avec lien vers différentes hotlines -->
 {% endblock %}
 
 </body>
