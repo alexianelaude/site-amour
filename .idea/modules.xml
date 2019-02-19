@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/site-amour.iml" filepath="$PROJECT_DIR$/.idea/site-amour.iml" />
       <module fileurl="file://$PROJECT_DIR$/../sitetest/.idea/sitetest.iml" filepath="$PROJECT_DIR$/../sitetest/.idea/sitetest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../Downloads/templated-synchronous/.idea/templated-synchronous.iml" filepath="$PROJECT_DIR$/../Downloads/templated-synchronous/.idea/templated-synchronous.iml" />
     </modules>
   </component>
 </project>

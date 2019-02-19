@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+import datetime
 
 
 # Create your models here.
@@ -11,6 +12,7 @@ class Hotline(models.Model):
     delivery_date = models.DateField(default = timezone.now())
     delivery_place = models.CharField(max_length = 500)
     comment = models.TextField(null = True, blank = True)
+
 
     class Meta:
         abstract = True

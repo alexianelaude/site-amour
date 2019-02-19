@@ -143,8 +143,6 @@ aside {
   color: #d60018;
 }
 
-.navbar-default .nav > li.active > a:hover,
-
 @media (min-width: 768px) {
   
   .navbar-default .navbar-header .navbar-brand {

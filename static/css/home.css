@@ -63,10 +63,12 @@ aside {
   border: 1px solid black;
   border-radius: 25px;
   height: 100%;
+}
+
+ul #chat {
   list-style-type: none;
   overflow: scroll;
 }
-
 
 .no-padding {
   padding: 0;
