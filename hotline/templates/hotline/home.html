@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 {% extends 'base.html' %}
+
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <title>Hotlines</title>
@@ -10,6 +14,7 @@
 
 {% block content %}
     <!--Remettre les images stylées avec lien vers différentes hotlines -->
+    <a href = "{% url 'hotline:crepes' %}"><img src = "{% static 'img/crepes.jpg' %}"/></a>
 {% endblock %}
 
 </body>

@@ -14,10 +14,14 @@
 <h2>{{ mesure.name }}</h2>
 <p>{{ mesure.description }}</p>
 <a href = "{% url 'programme:detail' mesure.id %}">Voir les commentaires des mineurs</a><br />
+    {% if user.is_authenticated %}
 <a href = "{% url 'programme:vote' mesure.id %}">Je donne mon avis</a><br />
+    {% endif %}
 {% endfor %}
 
+    {% if user.is_authenticated %}
     <mark><a href = "{% url 'programme:boite_a_idee' %}">Boîte à idée</a></mark>
+    {% endif %}
 {% endblock %}
 </body>
 </html>

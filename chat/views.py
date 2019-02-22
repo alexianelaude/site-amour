@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import NewChat
+from django.http import HttpResponseRedirect
+
 from .models import Chat
 
 # Create your views here.
@@ -10,5 +12,5 @@ def new_chat(request):
         if request.user.is_authenticated:
             chat.user = request.user
             chat.save()
-            return redirect('home')
+            return HttpResponseRedirect(request.META['HTTP_REFERER'])
     return render(request, 'home.html')

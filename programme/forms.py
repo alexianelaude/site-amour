@@ -1,4 +1,3 @@
-from .models import Mesure
 from django import forms
 
 class MesureForm(forms.Form):
@@ -6,4 +5,4 @@ class MesureForm(forms.Form):
     comment = forms.CharField(label = 'Un commentaire?')
 
 class BoiteAIdee(forms.Form):
-    idee = forms.CharField(label = "Explique nous ton idée!")
+    description = forms.CharField(label = "Explique nous ton idée!")

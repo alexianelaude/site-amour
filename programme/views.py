@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 
 from django.http import HttpResponseRedirect
-from .models import Mesure, Avis
+from .models import Mesure, Avis, Idee
 
 from django.views import generic
 from django.shortcuts import get_object_or_404
@@ -29,7 +29,6 @@ def vote(request, pk):
             note = form.cleaned_data['note']
             comment = form.cleaned_data['comment']
             avis = get_object_or_404(Avis, mesure = mesure, user = request.user)
-            avis.has_voted = True
             avis.note = note
             avis.comment = comment
             avis.save()
@@ -53,7 +52,11 @@ def detail(request, pk):
 def boite_a_idee(request):
     form = BoiteAIdee(request.POST or None)
     if form.is_valid():
-        messages.add_message(request, messages.SUCCESS, 'Votre idée a bien été envoyée!')
-        return redirect(reverse('programme:index'))
+        if request.user.is_authenticated:
+            description = form.cleaned_data['description']
+            idee = Idee(user = request.user, description = description)
+            idee.save()
+            messages.add_message(request, messages.SUCCESS, 'Votre idée a bien été envoyée!')
+            return redirect(reverse('programme:index'))
     return render(request,'programme/boite_a_idee.html',locals())
 
