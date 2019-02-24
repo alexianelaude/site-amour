@@ -12,5 +12,5 @@ def new_chat(request):
         if request.user.is_authenticated:
             chat.user = request.user
             chat.save()
-            return HttpResponseRedirect(request.META['HTTP_REFERER'])
-    return render(request, 'home.html')
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+

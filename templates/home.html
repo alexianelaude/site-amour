@@ -2,6 +2,7 @@
 <html lang="en">
 
 {% load static %}
+{% load tags %}
 
 <head>
     <meta charset="utf-8">
@@ -132,7 +133,26 @@
                         <h3>Sondage du jour</h3>
                         <ul>
                             {% for poll in poll_today %}
-                            <li><a href = "{% url 'polls:detail' poll.id %}">{{ poll.question_text }}</a></li>
+                            <li>{{ poll.question_text }}</li>
+
+                                <form action="{% url 'polls:vote' poll.id %}" method="post">
+                                {% csrf_token %}
+                                    {% if not user.is_authenticated or poll|has_voted:user %}
+
+                                    <ul>
+                                     {%for choice in poll.choice_set.all %}
+                                         <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+                                     {% endfor %}
+                                    </ul>
+
+                                    {% else %}
+                                        {% for choice in poll.choice_set.all %}
+                                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                                            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+                                        {% endfor %}
+                                        <input type="submit" value="Vote">
+                                        {% endif %}
+
                             {% empty %}
                             Pas de sondage aujourd'hui, le VP geek se claque!
                             {% endfor %}
