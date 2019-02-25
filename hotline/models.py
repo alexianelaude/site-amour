@@ -21,3 +21,6 @@ class Crepes(Hotline):
     quantity = models.IntegerField()
     garniture = models.CharField(max_length = 300)
 
+class Apero(Hotline):
+    quantity = models.IntegerField()
+    avec_alcool = models.BooleanField()

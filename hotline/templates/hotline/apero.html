@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'base.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Apéros</title>
+</head>
+<body>
+
+{% block title %}Hotline Apéros{% endblock %}
+
+{% block content %}
+<form method="post"  action="{% url 'hotline:apero' %}">
+                 {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value = "Commander"/>
+                </form>
+
+{% endblock %}
+
+</body>
+</html>
