@@ -19,6 +19,9 @@ class Vote(models.Model):
     question = models.ForeignKey(Question, on_delete = models.CASCADE)
     has_voted = models.BooleanField(default = False)
 
+    class Meta:
+        unique_together = ("user","question")
+
 
 class Choice(models.Model):
     def __str__(self):

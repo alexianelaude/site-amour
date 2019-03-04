@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, reverse, get_list_or_404
-from .models import Crepes, Apero
-from .forms import CrepesForm, AperoForm
+from .models import Crepes, Apero, Meme
+from .forms import CrepesForm, AperoForm, MemeForm
 from django.contrib import messages
 from django.utils import timezone
 from datetime import timedelta
-
+from django.core.mail import send_mail, EmailMessage
+import os
+import random
 
 # Create your views here.
 def new_crepes(request):
@@ -37,4 +39,33 @@ def new_apero(request):
             return redirect(reverse('home'))
     return render(request, 'hotline/apero.html', locals())
 
+def random_meme():
+    memes = os.listdir('media/memes/')
+    k = random.randint(0, len(memes)-1)
+    return memes[k]
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def new_meme(request):
+    form = MemeForm(request.POST or None)
+    if form.is_valid():
+        all_orders = Meme.objects.filter(user = request.user, order_date = timezone.now())
+        if len(all_orders) > 0:
+            messages.add_message(request, messages.ERROR, "Un seul meme par jour!")
+            return render(request,'home.html')
+        if request.user.is_authenticated:
+            meme = form.save(commit = False)
+            meme.user = request.user
+            meme.save()
+            mail = EmailMessage(
+                'Voici un Meme de qualité supérieur',
+                'Hey',
+                'alexsingap@gmail.com',
+                [meme.user.email]
+            )
+            mail.attach_file(BASE_DIR+'/media/memes/'+random_meme())
+            mail.send()
+            messages.add_message(request, messages.SUCCESS, 'Tu as bien recu un meme, check ta boîte mail!')
+            return redirect(reverse('home'))
+    return render(request, 'hotline/meme.html', locals())

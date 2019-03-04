@@ -24,3 +24,8 @@ class Crepes(Hotline):
 class Apero(Hotline):
     quantity = models.IntegerField()
     avec_alcool = models.BooleanField()
+
+class Meme(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    order_date = models.DateField(auto_now_add = True)
+    comment = models.TextField(null = True, blank = True)

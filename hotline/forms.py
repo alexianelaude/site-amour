@@ -1,6 +1,6 @@
 from django import forms
 from django.utils import timezone
-from .models import Crepes, Apero
+from .models import Crepes, Apero, Meme
 import datetime
 import pytz
 
@@ -48,5 +48,12 @@ class AperoForm(forms.ModelForm):
         delivery = pytz.timezone('Europe/Amsterdam').localize(delivery)
         if delivery < timezone.now():
             raise forms.ValidationError('Laisse nous un peu de temps!')
+
+
+class MemeForm(forms.ModelForm):
+    class Meta:
+        model = Meme
+        fields = ['comment']
+        labels = {'comment': "Un petit mot d'amour/ Une petite blague en échange?"}
 
 

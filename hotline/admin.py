@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Crepes, Apero
+from .models import Crepes, Apero, Meme
 
 # Register your models here.
 class CrepesAdmin(admin.ModelAdmin):
@@ -17,3 +17,8 @@ class AperoAdmin(admin.ModelAdmin):
     ordering = ('delivery_date','delivery_time')
 
 admin.site.register(Apero, AperoAdmin)
+
+class MemeAdmin(admin.ModelAdmin):
+    list_display = ('user', 'order_date', 'comment')
+
+admin.site.register(Meme, MemeAdmin)
