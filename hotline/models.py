@@ -29,3 +29,12 @@ class Meme(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     order_date = models.DateField(auto_now_add = True)
     comment = models.TextField(null = True, blank = True)
+
+class PetitDej(Hotline):
+    gout_muffin = models.CharField(max_length = 500)
+    compote = models.CharField(max_length = 300)
+    quatre_quart = models.BooleanField (default = True)
+    boisson_chaude = models.CharField(max_length = 500)
+    jus = models.CharField(max_length = 500)
+    tartine = models.CharField(max_length = 500)
+

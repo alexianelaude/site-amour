@@ -2,27 +2,25 @@
 <html lang="en">
 
 {% extends 'base.html' %}
-
 <head>
     <meta charset="UTF-8">
-    <title>Crêpes</title>
+    <title>Petit Dej</title>
 </head>
 <body>
-
-{% block title %}Hotline Crêpes{% endblock %}
+{% block title %}Votre Petit déjeuner, livré à domicile{% endblock %}
 
 {% block content %}
     {% if user.is_authenticated %}
-<form method="post"  action="{% url 'hotline:crepes' %}">
+    <p>Commandez dès à présent un super petit dej, livré vendredi matin de 8h à midi, dans votre piaule de la Meuh</p>
+<form method="post"  action="{% url 'hotline:petitdej' %}">
                  {% csrf_token %}
                 {{ form.as_p }}
                 <input type="submit" value = "Commander"/>
                 </form>
     {% else %}
-    <p>Connecte toi pour commander un max de crêpes!</p>
+    <p>Connecte toi pour commander ton petit dej du vendredi matin</p>
     {% endif %}
 
 {% endblock %}
-
 </body>
 </html>
