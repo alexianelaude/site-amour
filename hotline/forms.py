@@ -1,6 +1,6 @@
 from django import forms
 from django.utils import timezone
-from .models import Crepes, Apero, Meme, PetitDej
+from .models import Crepes, Apero, Meme, PetitDej, Muffin
 import datetime
 import pytz
 
@@ -30,7 +30,7 @@ class CrepesForm(forms.ModelForm):
 class PetitDejForm(forms.ModelForm):
     class Meta:
         model = PetitDej
-        exclude = ['user','order_time', 'delivery_date','jus','boisson_chaude']
+        exclude = ['user','order_time', 'delivery_date','delivered']
         labels = {'delivery_time': 'Heure de livraison',
                   'delivery_place': 'Ta chambre?',
                   'jus': 'Un petit jus?',
@@ -55,24 +55,27 @@ class PetitDejForm(forms.ModelForm):
 class AperoForm(forms.ModelForm):
     class Meta:
         model = Apero
-        fields = ['quantity','avec_alcool','delivery_time','delivery_date', 'delivery_place', 'comment']
-        labels = {'quantity': 'Combien de personnes?','delivery_time': 'Heure de livraison', 'delivery_date': 'Date de livraison','delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?',}
-        widgets = {'avec_alcool' : forms.widgets.Select(choices = ((True, 'avec alcool'),(False, 'sans alcool'))), 'delivery_date': forms.widgets.SelectDateWidget()}
-
-    def clean_quantity(self):
-        quantity = self.cleaned_data['quantity']
-        if quantity > 20:
-            raise forms.ValidationError("Laisse en aux autres stp!")
-
-        return quantity
+        fields = ['quantity','delivery_time', 'delivery_place', 'vin', 'biere', 'cidre', 'cocktail', 'virgin_cocktail','vege','comment']
+        labels = {'quantity': 'Combien de personnes?',
+                  'delivery_time': 'Heure de livraison',
+                  'delivery_place': 'Lieu de livraison',
+                  'vin': 'Combien de verres de vin?',
+                  'biere': 'Combien de demis de bière?',
+                  'cidre': 'Combien de verres de cidre?',
+                  'cocktail': 'Combien de verres du cocktail du jour ultra quali?',
+                  'virgin_cocktail': 'Combien de verres du cocktail sans alcool pour démarrer la soirée en douceur?',
+                  'vege': 'Combien de personnes sont végétariennes parmi vous?',
+                  'comment': 'Un petit commentaire?'}
 
     def clean(self):
-        delivery_date = self.cleaned_data['delivery_date']
-        delivery_time = self.cleaned_data['delivery_time']
-        delivery = datetime.datetime.combine(delivery_date, delivery_time)
-        delivery = pytz.timezone('Europe/Amsterdam').localize(delivery)
-        if delivery < timezone.now():
-            raise forms.ValidationError('Laisse nous un peu de temps!')
+        vin = self.cleaned_data['vin']
+        cidre = self.cleaned_data['cidre']
+        biere = self.cleaned_data['biere']
+        cocktail = self.cleaned_data['cocktail']
+        virgin_cocktail = self.cleaned_data['virgin_cocktail']
+        quantity = self.cleaned_data['quantity']
+        if vin+cidre+biere+cocktail+virgin_cocktail > quantity:
+            raise forms.ValidationError('Il y a trop de boissons, recomptez')
 
 
 class MemeForm(forms.ModelForm):
@@ -82,3 +85,18 @@ class MemeForm(forms.ModelForm):
         labels = {'comment': "Un petit mot d'amour/ Une petite blague en échange?"}
 
 
+class MuffinForm(forms.ModelForm):
+    class Meta:
+        model = Muffin
+        exclude = ['user','order_time', 'delivery_date','delivered']
+        labels = {'delivery_time': 'Heure de livraison: donne une heure entre 16 et 17h',
+                  'delivery_place': 'Ta chambre?',
+                  'gout_muffin': 'Ton muffin tu le veux comment?',
+                  'comment': 'Un petit commentaire?',}
+        widgets = {'gout_muffin': forms.widgets.Select(choices=[('chocolat', 'chocolat'), ('nature', 'nature'), ('abricot',"confiture d'abricot"),('fraise',"confiture de fraise")]),
+                   }
+
+    def clean(self):
+        delivery_time = self.cleaned_data['delivery_time']
+        if (delivery_time < datetime.time(16,0,0)) or (delivery_time > datetime.time(17,0,0)):
+            raise forms.ValidationError("Choisis une heure entre 16h et 17h s'il te plaît")

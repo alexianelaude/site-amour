@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
+{% extends 'base.html' %}
 <head>
     <meta charset="UTF-8">
-    <title>Apéros</title>
+    <title>Muffins</title>
 </head>
 <body>
-
-{% block title %}Hotline Apéros{% endblock %}
+{% block title %}Hotline muffins{% endblock %}
 
 {% block content %}
-
     {% if user.is_authenticated %}
-<form method="post"  action="{% url 'hotline:apero' %}">
+    <p>Une hotline muffin, tu en as rêvée, on l'a fait!</p>
+<form method="post"  action="{% url 'hotline:muffin' %}">
                  {% csrf_token %}
                 {{ form.as_p }}
                 <input type="submit" value = "Commander"/>
                 </form>
     {% else %}
-    <p>Connecte toi pour profiter d'apéros ultra qualis!</p>
+    <p>Connecte toi pour commander un muffin tout chaud</p>
     {% endif %}
 
 {% endblock %}
-
 </body>
 </html>

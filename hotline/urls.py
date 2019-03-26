@@ -9,5 +9,6 @@ urlpatterns = [
     path('apero/', views.new_apero, name = 'apero'),
     path('petitdej/', views.new_petitdej, name='petitdej'),
     path('meme/', views.new_meme, name = 'meme'),
+    path('muffin/', views.new_muffin, name='muffin'),
     path('', TemplateView.as_view(template_name = 'hotline/home.html'), name ='home'),
 ]
