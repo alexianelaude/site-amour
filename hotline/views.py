@@ -12,9 +12,9 @@ import random
 def new_crepes(request):
     form = CrepesForm(request.POST or None, initial = {'delivery_date':timezone.now(), 'delivery_time': timezone.now() + timedelta(hours = 1)})
     if form.is_valid():
-        all_orders = Crepes.objects.filter(user = request.user)
-        if len(all_orders) > 10:
-            messages.add_message(request, messages.ERROR, "Tu as déjà trop commandé!")
+        current_order = Crepes.objects.filter(user = request.user, delivered = False)
+        if len(current_order) > 0:
+            messages.add_message(request, messages.ERROR, "Attend que ta commande précédente arrive!")
             return render(request,'home.html')
         if request.user.is_authenticated:
             hot = form.save(commit = False)

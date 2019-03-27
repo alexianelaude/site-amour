@@ -7,16 +7,11 @@ import pytz
 class CrepesForm(forms.ModelForm):
     class Meta:
         model = Crepes
-        fields = ['quantity','garniture','delivery_time','delivery_date', 'delivery_place', 'comment']
-        labels = {'quantity': 'Combien de crêpes?','delivery_time': 'Heure de livraison', 'delivery_date': 'Date de livraison','delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?',}
-        widgets = {'delivery_date': forms.widgets.SelectDateWidget()}
+        fields = ['garniture','delivery_time','delivery_date', 'delivery_place', 'comment']
+        labels = {'delivery_time': 'Heure de livraison', 'delivery_date': 'Date de livraison','delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?', 'garniture': 'Ta crêpe tu l\'aime?'}
+        widgets = {'delivery_date': forms.widgets.SelectDateWidget(),
+                   'garniture': forms.widgets.Select(choices=[('chocolat', 'Au chocolat fondu'), ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise")])}
 
-    def clean_quantity(self):
-        quantity = self.cleaned_data['quantity']
-        if quantity > 20:
-            raise forms.ValidationError("Laisse en aux autres stp!")
-
-        return quantity
 
     def clean(self):
         delivery_date = self.cleaned_data['delivery_date']
@@ -96,7 +91,12 @@ class MuffinForm(forms.ModelForm):
         widgets = {'gout_muffin': forms.widgets.Select(choices=[('chocolat', 'chocolat'), ('nature', 'nature'), ('abricot',"confiture d'abricot"),('fraise',"confiture de fraise")]),
                    }
 
-    def clean(self):
+    def clean_delivery_time(self):
         delivery_time = self.cleaned_data['delivery_time']
         if (delivery_time < datetime.time(16,0,0)) or (delivery_time > datetime.time(17,0,0)):
             raise forms.ValidationError("Choisis une heure entre 16h et 17h s'il te plaît")
+
+    def clean_order_time(self):
+        order_time = self.cleaned_data['order_time']
+        if order_time.datetime.time > datetime.time(12,0,0):
+            raise forms.ValidationError("Il est trop tard pour commander aujourd'hui, reviens demain!")
