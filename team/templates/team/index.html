@@ -14,18 +14,28 @@
 {% block title %}Notre équipe{% endblock %}
 
 {% block content %}
-    <div class = "gallery">
-{% for listeux in listeux_list %}
 
-
-    <img src = "{{ listeux.image.url }}"/>
-    <div class = "pres">
-        <h3>{{ listeux.name }}</h3>
-    <p>{{ listeux.post }}</p>
-    </div>
-
-{% endfor %}
-    </div>
+    {% for listeux in listeux_list %}
+        <div class="row no-gutter popup-gallery">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="portfolio-box">
+                        <figure>
+                        <img src="{{ listeux.image.url }}" class="img-responsive" alt="Static Image" data-alt="{{ listeux.gif.url }}">
+                        </figure>
+                            <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    {{ listeux.name }}
+                                </div>
+                                <div class="project-name">
+                                    {{ listeux.poste }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    {% endfor %}
 
     <section class="no-padding" id="portfolio">
         <div class="container-fluid">

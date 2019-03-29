@@ -10,10 +10,21 @@
 {% block title %}Notre Programme:{% endblock %}
 
 {% block content %}
+    <p>
+    Pour élaborer ce programme, nous avons voulu partir de demande de mineurs. La Mine est un grand lieu de vie où cohabitent des personnes ayant toutes des attentes et des aspirations différentes. C’est en essayant de comprendre au mieux les attentes et en traitant les sujets qui nous tiennent à coeur que ce programme a vu le jour. Notre programme se veut centré majoritairement selon deux grands axes : la convivialité et la communication tout cela pour oeuvrer à l’ouverture de la Mine.
+
+Pour le construire, nous avons échangé avec les piauleurs, les Isupferes, MPTA et la DE.
+
+    </p>
+    <h2>Préambule:
+    </h2>
+    <p>
+L’objectif est de s’assurer que ce programme sera bien mis en place au cours de notre mandat. Pour cela, le BDE s’engage à être transparent sur l’avancement des différentes mesures en publiant une fois par mois un article dans le Vendôme. Celui-ci fera état des projets réalisés, ceux en cours et des difficultées rencontrées sur les autres.
+    </p>
 {% for mesure in mesure_list %}
 <h2>{{ mesure.name }}</h2>
-<p>{{ mesure.description }}</p>
-<a href = "{% url 'programme:detail' mesure.id %}">Voir les commentaires des mineurs</a><br />
+<p>{{ mesure.preambule }}</p>
+<a href = "{% url 'programme:detail' mesure.id %}">Voir la mesure en détail</a><br />
     {% if user.is_authenticated %}
 <a href = "{% url 'programme:vote' mesure.id %}">Je donne mon avis</a><br />
     {% endif %}

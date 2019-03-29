@@ -8,7 +8,9 @@ from django.dispatch import receiver
 # Create your models here.
 class Mesure(models.Model):
     name = models.CharField(max_length = 300)
-    description = models.TextField()
+    preambule = models.TextField(null = True)
+    constat = models.TextField(null = True)
+    concret = models.TextField(null = True)
 
 
 class Avis(models.Model):
