@@ -54,6 +54,7 @@ section {
 }
 aside {
   padding: 50px 0;
+    display: inline-block;
 }
 
 html,
@@ -63,6 +64,7 @@ body, container {
   display: table;
   width: 100%;
     background-color:white;
+
 }
 
 .content {
@@ -84,6 +86,7 @@ body, container {
   position: fixed;
   height: 100%;
   overflow: visible;
+  display: inline-block;
 }
 
 .list-group{
