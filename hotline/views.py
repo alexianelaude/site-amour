@@ -14,7 +14,7 @@ def new_crepes(request):
     if form.is_valid():
         current_order = Crepes.objects.filter(user = request.user, delivered = False)
         if len(current_order) > 0:
-            messages.add_message(request, messages.ERROR, "Attend que ta commande précédente arrive!")
+            messages.add_message(request, messages.ERROR, "Attends que ta commande précédente arrive!")
             return render(request,'home.html')
         if request.user.is_authenticated:
             hot = form.save(commit = False)

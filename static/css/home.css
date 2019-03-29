@@ -42,6 +42,17 @@ p {
   line-height: 1.5;
   margin-bottom: 20px;
 }
+
+.list-group{
+    max-height: 200px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sondage{
+  height: 285px;
+}
+
 .bg-primary {
   background-color: #d60018;
 }
