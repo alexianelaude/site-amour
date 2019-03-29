@@ -8,3 +8,7 @@ register = template.Library()
 def has_voted(poll, user):
     vote = get_object_or_404(Vote, user = user, question = poll)
     return vote.has_voted
+
+@register.simple_tag
+def get_bootstrap_alert_msg_css_name(tags):
+  return tags

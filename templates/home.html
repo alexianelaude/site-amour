@@ -88,6 +88,17 @@
         <!-- /.container-fluid -->
     </nav>
 
+    <div id="message">
+            {% for message in messages %}
+              <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+              </div>
+            {% endfor %}
+    </div>
+
     <header>
         <div class="header-content">
             <div class="header-content-inner">
