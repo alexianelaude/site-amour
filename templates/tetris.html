@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+{% extends base.html %}
+    <head>
+        <title>HTML5 Tetris</title>
+        <link rel='stylesheet' href='../tetris/style.css' />
+    </head>
+    <body>
+        <audio id="clearsound" src="../tetris/sound/clear.mp3" preload="auto"></audio>
+		<audio id="gamesound" src="../tetris/sound/tetris.mp3" preload="auto"></audio>
+		<audio id="gameover" src="../tetris/sound/gameover.mp3" preload="auto"></audio>
+		
+		<div id=content>
+		
+		<div id="dialog"> <img src ="../tetris/Logo.png" height ='100' id=dialoglogo> <p id=dialogbox></p> </div>
+        <canvas width='300' height='600'></canvas>
+        <button id="playbutton" onclick="playButtonClicked();">Play</button>
+		
+		</div>
+        <script src='../tetris/js/tetris.js'></script>
+        <script src='../tetris/js/controller.js'></script>
+        <script src='../tetris/js/render.js'></script>
+    </body>
+</html>
