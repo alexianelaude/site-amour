@@ -13,7 +13,6 @@
     <p>{{ mesure.constat }}</p>
     <h2>Mesure concrète:</h2>
     <p>{{ mesure.concret }}</p>
-   <p> Note moyenne: {{ moyenne }}</p>
 
 {% for reponse in reponses %}
     {% if reponse.comment %}
@@ -24,7 +23,8 @@
 
     {% endfor%}
 
-    <strong><a href = "{% url 'programme:vote' mesure.id %}">Je donne mon avis!</a></strong>
+    <p><strong><a href = "{% url 'programme:vote' mesure.id %}">Je donne mon avis!</a></strong></p>
+    <p><strong><a href = "{% url 'programme:index' %}">Revenir au programme</a></strong></p>
 {% endblock %}
 
 </body>

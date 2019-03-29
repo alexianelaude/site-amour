@@ -11,7 +11,7 @@ class Question(models.Model):
     def __str__(self):
         return self.question_text
     question_text = models.CharField(max_length=200, verbose_name = 'question')
-    pub_date = models.DateField(auto_now_add = True, verbose_name ='date published')
+    pub_date = models.DateField(default = timezone.now(), verbose_name ='date published')
     voters = models.ManyToManyField(User, through = 'Vote')
 
 class Vote(models.Model):
