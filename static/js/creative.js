@@ -91,9 +91,10 @@
 
       if($imgExt[1] === 'gif') {
           $img.attr('src', $img.data('alt')).attr('data-alt', $imgSrc);
-      } //else {
-      //    $img.attr('src', $imgAlt).attr('data-alt', $img.data('alt'));
-      //}
+      } else {
+          $img.attr('src', $imgAlt).attr('data-alt', $img.data('alt'));
+          $img.attr('src', $img.data('alt')).attr('data-alt', $imgSrc);
+      }
 
     });
 })(jQuery); // End of use strict
