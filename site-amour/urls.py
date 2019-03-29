@@ -27,6 +27,7 @@ urlpatterns = [
     path('team/', include('team.urls')),
     path('partenaires/', TemplateView.as_view(template_name = 'partners.html'), name = 'partners'),
     path('gallery/',TemplateView.as_view(template_name = 'gallery.html'), name = 'gallery'),
+    path('tetris/', TemplateView.as_view(template_name='tetris.html'), name='tetris'),
     path('connexion/', views.connexion, name='connexion'),
     path('deconnexion/', views.deconnexion, name='deconnexion'),
     path('new_user/', views.new_user, name='new_user'),

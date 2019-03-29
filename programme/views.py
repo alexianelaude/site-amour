@@ -40,13 +40,6 @@ def vote(request, pk):
 def detail(request, pk):
     mesure = get_object_or_404(Mesure, pk = pk)
     reponses = Avis.objects.filter(mesure = mesure)
-    s = 0
-    n = 0
-    for rep in reponses:
-        if rep.note:
-            s += rep.note
-            n += 1
-    moyenne = s/n
     return render(request, 'programme/detail.html',locals())
 
 def boite_a_idee(request):
