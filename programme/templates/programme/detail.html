@@ -8,8 +8,12 @@
 <body>
 {% block title %}{{ mesure.name }}{% endblock %}
 {% block content %}
-<p>{{ mesure.description }}<br />
-    Note moyenne: {{ moyenne }}</p>
+<p>{{ mesure.preambule }}<p>
+<h2>Constat:</h2>
+    <p>{{ mesure.constat }}</p>
+    <h2>Mesure concrète:</h2>
+    <p>{{ mesure.concret }}</p>
+   <p> Note moyenne: {{ moyenne }}</p>
 
 {% for reponse in reponses %}
     {% if reponse.comment %}
