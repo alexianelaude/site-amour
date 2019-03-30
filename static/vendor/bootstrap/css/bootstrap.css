@@ -120,9 +120,10 @@ textarea {
 button {
   overflow: visible;
   background : transparent no-repeat;
-    outline: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
+  outline: none;
+  border: 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
 }
 button,
 select {

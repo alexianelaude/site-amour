@@ -2,6 +2,8 @@
 <html lang="en">
 
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
 <head>
     <meta charset="UTF-8">
     <title>Petit Dej</title>
@@ -14,8 +16,8 @@
     <p>Commandez dès à présent un super petit dej, livré vendredi matin de 8h à midi, dans votre piaule de la Meuh</p>
 <form method="post"  action="{% url 'hotline:petitdej' %}">
                  {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value = "Commander"/>
+                {{ form |crispy }}  <!-- form.as_p -->
+                <input type="submit" class="btn btn-success" value = "Commander"/>
                 </form>
     {% else %}
     <p>Connecte toi pour commander ton petit dej du vendredi matin</p>

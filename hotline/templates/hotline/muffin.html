@@ -2,6 +2,8 @@
 <html lang="en">
 
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
 <head>
     <meta charset="UTF-8">
     <title>Muffins</title>
@@ -14,8 +16,8 @@
     <p>Une hotline muffin, tu en as rêvée, on l'a fait!</p>
 <form method="post"  action="{% url 'hotline:muffin' %}">
                  {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value = "Commander"/>
+                {{ form |crispy }}  <!-- form.as_p -->
+                <input type="submit" class="btn btn-success" value = "Commander"/>
                 </form>
     {% else %}
     <p>Connecte toi pour commander un muffin tout chaud</p>

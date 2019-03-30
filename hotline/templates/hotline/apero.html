@@ -2,6 +2,7 @@
 <html lang="en">
 
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 <head>
     <meta charset="UTF-8">
@@ -16,8 +17,8 @@
     {% if user.is_authenticated %}
 <form method="post"  action="{% url 'hotline:apero' %}">
                  {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value = "Commander"/>
+               {{ form |crispy }}  <!-- form.as_p -->
+                <input type="submit" class="btn btn-success" value = "Commander"/>
                 </form>
     {% else %}
     <p>Connecte toi pour profiter d'apéros ultra qualis!</p>

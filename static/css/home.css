@@ -465,7 +465,7 @@ body {
 
 .timeline ol {
   font-size: 0;
-  width: 100vw;
+  width: 100%;
   padding: 20px 0 150px 0;
   transition: all 1s;
 }
@@ -497,7 +497,7 @@ body {
   height: 12px;
   transform: translateY(-50%);
   border-radius: 50%;
-  background: rgba(219, 0, 0, 1);
+  background: black; /*rgba(219, 0, 0, 1);*/
 }
 
 .timeline ol li div {
@@ -637,4 +637,6 @@ body {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
   }
+
+
 }
