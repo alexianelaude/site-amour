@@ -1,2 +1,4 @@
 gunicorn
 django-heroku
+django-crispy-forms
+django-photologue
