@@ -35,7 +35,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Mine'Light</title>
+    <title>Camino Royale</title>
 </head>
 
 
@@ -116,7 +116,9 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Sondage et messages</h2>
                     <hr class="primary">
+                    {% if not user.is_authenticated %}
                     <p>Vous pouvez voter et poster des messages ici si vous créez un compte !</p>
+                    {% else %}
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <div  id = "chat">
@@ -130,13 +132,11 @@
                                  Personne n'a envoyé de message :(
                             {% endfor %}
                          </ul>
-                        {% if user.is_authenticated %}
                             <form method="post"  action="{% url 'chat:new_chat' %}">
                                 {% csrf_token %}
                                 {{ chat_form.as_p }}
                                 <input type="submit" value = "Envoyer"/>
                             </form>
-                        {% endif %}
                     </div>
                 </div>
                 
@@ -170,6 +170,7 @@
                             {% endfor %}
                         </ul>
                     </div>
+                {% endif %}
                 </div>
             </div>
 
@@ -182,20 +183,14 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Programme de la semaine</h2>
                     <hr class="light">
-                    <p class="text-faded">On peut mettre ici une échelle temporelle avec tout le programme mais pour l'instant, j'ai un peu la flemme de la coder.</p>
+                    <p class="text-faded">Accrochez-vous, ca va être lourd
+                    {% for event in all_events %}
+                    <li>{{ event.name }}</li>
+                    {% endfor %}
+                    </p>
 
                     <section class="timeline">
                           <ol>
-                            <li>
-                              <div>
-                                <time>1934</time> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                              </div>
-                            </li>
-                            <li>
-                              <div>
-                                <time>1937</time> Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi. Suspendisse finibus mauris et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi.
-                              </div>
-                            </li>
                             <li>
                               <div>
                                 <time>1940</time> Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at pulvinar tortor ex eget ligula.
