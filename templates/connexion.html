@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 <head>
     <meta charset="UTF-8">
@@ -12,6 +13,7 @@
 
 {% block content %}
 
+
 <h1>Se connecter</h1>
 
 {% if error %}
@@ -23,8 +25,9 @@ Vous êtes connecté, {{ user.username }} !
 {% else %}
 <form method="post" action=".">
     {% csrf_token %}
-    {{ connexion_form.as_p }}
-    <input type="submit" value="Se connecter" />
+
+    {{ connexion_form |crispy }}  <!-- form.as_p -->
+    <input type="submit" class="btn btn-success" value = "Se connecter"/>
 </form>
 {% endif %}
 
