@@ -131,7 +131,7 @@ ul #chat {
 }
 @media (min-width: 768px) {
   .navbar-default {
-    background-color: transparent;
+    background-color: transparent;/*rgba(255,255,255, 0.5);*/
     border-color: transparent; /*rgba(219,0,0, 1);*/
   }
   .navbar-default .navbar-header .navbar-brand {
@@ -174,7 +174,7 @@ ul #chat {
 header {
   position: relative;
   width: 100%;
-  min-height: auto;
+  /*min-height: auto;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -188,11 +188,12 @@ header .header-content {
   position: relative;
   display: inline-block;
   text-align: center;
-  padding: 100px 15px 100px;
+  /*padding: 100px 15px 100px;*/
   border-radius: 15px;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
 }
+
 header .header-content .header-content-inner h1 {
   font-weight: 700;
   text-transform: uppercase;

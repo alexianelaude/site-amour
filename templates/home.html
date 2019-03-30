@@ -58,11 +58,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="{% url 'team:index' %}"><!--{% if user.is_authenticated %}
-                    Bienvenue sur le site {{ user.username }}!
-                    {% else %}
-                    Bienvenue sur le site!
-                    {% endif %}-->
+                <a class="navbar-brand page-scroll" href="{% url 'home' %}">
                     <img src="{% static 'img/Logo.png' %}" alt="Logo" style="width:130px;">
                 </a>
             </div>
@@ -71,7 +67,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href = "{% url 'home' %}">Accueil</a>
+                        <a class="page-scroll" href = "{% url 'home' %}"><b>Accueil</b></a>
                     </li>
                     <li>
                         <a class="page-scroll" href="{% url 'events:index' %}">Evénements</a>
@@ -106,12 +102,11 @@
 
     <header>
         <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Liste BDE Mine'Light</h1>
-                <hr>
-                <p>Là, on peut mettre un petit bla bla sur qui nous sommes</p>
+            <!--<div class="header-content-inner">
+                <h2 id="homeHeading">Liste BDE Mine'Light</h2>
+
                 <a href="{% url 'team:index' %}" class="btn btn-primary btn-xl page-scroll">L'équipe</a>
-            </div>
+            </div>-->
         </div>
     </header>
 
