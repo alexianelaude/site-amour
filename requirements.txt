@@ -3,3 +3,6 @@ django
 django-heroku
 django-crispy-forms
 django-photologue
+requests
+psycopg2-binary
+dj-database-url
