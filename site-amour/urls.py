@@ -35,7 +35,8 @@ urlpatterns = [
     path('events/',include('events.urls')),
     path('polls/',include('polls.urls')),
     path('programme/', include('programme.urls')),
-    path('hotline/', include('hotline.urls'))
+    path('hotline/', include('hotline.urls')),
+    path('quiz/', TemplateView.as_view(template_name = 'quiz.html'), name='quiz')
 ]
 
 
