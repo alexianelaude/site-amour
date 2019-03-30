@@ -45,3 +45,10 @@ def new_user(request):
         messages.add_message(request, messages.SUCCESS, "Bienvenue %s, ton compte a bien été enregistré" % (user.username))
         return render(request, 'home.html')
     return render(request, 'new_user.html', {'form': form})
+
+def tetris(request):
+    if request.method == 'POST' and request.user.is_authenticated:
+        joueur = Profil.objects.filter(user = request.user)
+        joueur.highscore = score
+        joueur.save()
+    return render(request, 'tetris.html')

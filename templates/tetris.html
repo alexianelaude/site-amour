@@ -2,24 +2,39 @@
 <html>
 
 {% extends 'base.html' %}
+{% load static %}
+
     <head>
-        <title>HTML5 Tetris</title>
-        <link rel='stylesheet' href='../static/tetris/style.css' />
+        <title>Tetris</title>
     </head>
     <body>
-        <audio id="clearsound" src="../static/tetris/sound/clear.mp3" preload="auto"></audio>
-		<audio id="gamesound" src="../static/tetris/sound/tetris.mp3" preload="auto"></audio>
-		<audio id="gameover" src="../static/tetris/sound/gameover.mp3" preload="auto"></audio>
-		
-		<div id=content>
-		
-		<div id="dialog"> <img src ="../static/tetris/Logo.png" height ='100' id=dialoglogo> <p id=dialogbox></p> </div>
-        <canvas width='300' height='600'></canvas>
-        <button id="playbutton" onclick="playButtonClicked();">Play</button>
-		
-		</div>
-        <script src='../static/tetris/js/tetris.js'></script>
-        <script src='../static/tetris/js/controller.js'></script>
-        <script src='../static/tetris/js/render.js'></script>
+
+        {% block content %}
+
+            <div>
+
+                <h1>Touches clavier:</h1>
+                <ul>
+                    <li> Rotation: Z	</li>
+                    <li> Déplacer: Q, S et D	</li>
+                    <li> chute: Espace  </li>
+                </ul>
+
+            </div>
+        <audio id="clearsound" src="{% static 'sound/clear.mp3'%}" preload="auto"></audio>
+		<audio id="gamesound" src="{% static 'sound/tetris.mp3'%}" preload="auto"></audio>
+		<audio id="gameover" src="{% static 'sound/gameover.mp3'%}" preload="auto"></audio>
+
+
+
+		<div id="dialog"> <img src ="{% static 'Logo.png'%}" height ='50' id=dialoglogo> <p id=dialogbox></p> </div>
+        <canvas width='300' height='550'></canvas>
+        <button id="playbutton" onclick="playButtonClicked();">Jouer</button>
+
+
+        <script src="{% static 'js_tetris/tetris.js'%}"></script>
+        <script src="{% static 'js_tetris/controller.js'%}"></script>
+        <script src="{% static 'js_tetris/render.js'%}"></script>
+        {% endblock %}
     </body>
 </html>

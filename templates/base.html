@@ -29,6 +29,7 @@
 
     <!-- Theme CSS -->
     <link href="{% static 'css/creative.css' %}" rel="stylesheet">
+    <link rel='stylesheet' href="{% static 'css/style.css' %}" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -77,6 +78,9 @@
                     </li>
                     <li>
                         <a class="page-scroll" href="{% url 'hotline:home' %}">Nos hotlines</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'tetris' %}">Jeu</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="{% url 'partners' %}">Nos partenaires</a>
@@ -179,7 +183,7 @@
 
 </section>
 
-<aside class="bg-dark">
+<footer class="bg-dark">
     <div class="container text-center">
 
         <div class="row">
@@ -200,7 +204,7 @@
 
         </div>
     </div>
-</aside>
+</footer>
 <!-- jQuery -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 
