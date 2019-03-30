@@ -2,6 +2,7 @@
 <html lang="en">
 
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 <head>
     <meta charset="UTF-8">
@@ -13,10 +14,10 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-<form method="post"  action="{% url 'hotline:crepes' %}">
+        <form method="post"  action="{% url 'hotline:crepes' %}">
                  {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value = "Commander"/>
+                {{ form |crispy }}  <!-- form.as_p -->
+                <input type="submit" class="btn btn-success" value = "Commander"/>
                 </form>
     {% else %}
     <p>Connecte toi pour commander un max de crêpes!</p>

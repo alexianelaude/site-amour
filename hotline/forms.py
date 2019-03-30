@@ -9,9 +9,8 @@ class CrepesForm(forms.ModelForm):
         model = Crepes
         fields = ['garniture','delivery_time','delivery_date', 'delivery_place', 'comment']
         labels = {'delivery_time': 'Heure de livraison', 'delivery_date': 'Date de livraison','delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?', 'garniture': 'Ta crêpe tu l\'aime?'}
-        widgets = {'delivery_date': forms.widgets.SelectDateWidget(),
+        widgets = {'delivery_date': forms.widgets.SelectDateWidget(attrs={'style': 'display: inline-block; width: 33%;'}),
                    'garniture': forms.widgets.Select(choices=[('chocolat', 'Au chocolat fondu'), ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise")])}
-
 
     def clean(self):
         delivery_date = self.cleaned_data['delivery_date']
