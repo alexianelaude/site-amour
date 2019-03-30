@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'programme',
     'hotline',
     'team',
+    'photologue',
+    'sortedm2m',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,10 +50,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

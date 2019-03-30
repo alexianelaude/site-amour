@@ -26,7 +26,6 @@ urlpatterns = [
     path('',TemplateView.as_view(template_name = 'home.html'), name = 'home'),
     path('team/', include('team.urls')),
     path('partenaires/', TemplateView.as_view(template_name = 'partners.html'), name = 'partners'),
-    path('gallery/',TemplateView.as_view(template_name = 'gallery.html'), name = 'gallery'),
     path('tetris/', views.tetris, name='tetris'),
     path('connexion/', views.connexion, name='connexion'),
     path('deconnexion/', views.deconnexion, name='deconnexion'),
@@ -34,6 +33,7 @@ urlpatterns = [
     path('chat/',include('chat.urls')),
     path('events/',include('events.urls')),
     path('polls/',include('polls.urls')),
+    path('photologue/', include('photologue.urls', namespace = 'photologue')),
     path('programme/', include('programme.urls')),
     path('hotline/', include('hotline.urls')),
     path('quiz/', TemplateView.as_view(template_name = 'quiz.html'), name='quiz')
