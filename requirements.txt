@@ -6,3 +6,4 @@ django-photologue
 requests
 psycopg2-binary
 dj-database-url
+whitenoise
