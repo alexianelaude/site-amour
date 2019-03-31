@@ -29,7 +29,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_#$=qp=az5-9x2%4^gjt#4^feu)b8#4jp1-*8r)#03&&tnb#j1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["camino-royale.herokuapp.com", "127.0.0.1"]
 
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'team',
     'photologue',
     'sortedm2m',
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -155,14 +156,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'media'),
-)
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
