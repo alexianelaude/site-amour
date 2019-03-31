@@ -32,7 +32,7 @@
 
                         answers.push(
                           `<label>
-                            <input type="radio" name="question${questionNumber}" value="${letter}">
+                            <input type="checkbox" name="question${questionNumber}" value="${letter}">
                             ${letter} :
                             ${currentQuestion.answers[letter]}
                           </label>`
@@ -70,7 +70,7 @@
                         numCorrect++;
 
                         // color the answers green
-                        answerContainers[questionNumber].style.color = "lightgreen";
+                        answerContainers[questionNumber].style.color = "green";
                       } else {
                         // if answer is wrong or blank
                         // color the answers red
@@ -85,35 +85,231 @@
                   const quizContainer = document.getElementById("quiz");
                   const resultsContainer = document.getElementById("results");
                   const submitButton = document.getElementById("submit");
-                  const myQuestions = [
+                    let  = "";
+                    const myQuestions = [
                     {
-                      question: "Who is the strongest?",
+                      question: "Quels membres du bureau ont BO leur nouvel an?",
                       answers: {
-                        a: "Superman",
-                        b: "The Terminator",
-                        c: "Waluigi, obviously"
+                        a: "Thibault",
+                        b: "Alexiane",
+                        c: "Antoine",
+                          d: "Arthur",
+                          e: "Nathan",
                       },
-                      correctAnswer: "c"
+                      correctAnswer: "b"
                     },
                     {
-                      question: "What is the best site ever created?",
+                      question: "Si je veux faire Paris-Nantes par les airs sans passer par une compagnie aérienne, quel est le meilleur moyen ?",
                       answers: {
-                        a: "SitePoint",
-                        b: "Simple Steps Code",
-                        c: "Trick question; they're both the best"
+                        a: "aller voir Antoine, ce pilote de KliT supérieure",
+                        b: "Dire à Arthur qu'on dépasse de 500€ le budget",
+                        c: "Se laisser séduire par Tom pour atteindre le 7ième ciel"
                       },
-                      correctAnswer: "c"
+                      correctAnswer: "a"
                     },
                     {
-                      question: "Where is Waldo really?",
+                      question: "Parmi ces trois membres du Sophia Qaida, qui a fait en tout 32 heures de car un week-end du Mig pour faire Paris-Nice ?",
                       answers: {
-                        a: "Antarctica",
-                        b: "Exploring the Pacific Ocean",
-                        c: "Sitting in a tree",
-                        d: "Minding his own business, so stop asking"
+                        a: "Nathan",
+                        b: "Leïla",
+                        c: "Elyès",
+                      },
+                      correctAnswer: "a"
+                    },
+                      {
+                      question: "Vrai ou Faux, Nathan a tenu sa résolution de faire Dry February?",
+                      answers: {
+                        a: "Vrai",
+                        b: "Faux",
+                      },
+                      correctAnswer: "a"
+                    },
+                      {
+                      question: "Quel signe de ponctuation Vincent est-il capable de faire avec son ventre ?",
+                      answers: {
+                        a: "Un point d'exclamation, car c'est quelqu'un de très étonné",
+                        b: "Un point d’interrogation, car il remet tout en question",
+                          c: "Trois points de suspension, car il est poussif",
+                          d: "Des guillemets, car il est bavard",
+                      },
+                      correctAnswer: "a"
+                    },
+                      {
+                      question: "Quel est le plus gros shark de la liste ?",
+                      answers: {
+                        a: "Louis Repussard",
+                        b: "Vincent Coz",
+                          c: "Elyès Kaak",
+                      },
+                      correctAnswer: "b"
+                    },
+                      {
+                      question: "Avec quel membre de la famille de son co Loïc a-t-il couché à l’interne de Noël ?",
+                      answers: {
+                        a: "Sa mère",
+                        b: "Son père",
+                          c: "Sa soeur",
+                          d: "Sa cousine",
                       },
                       correctAnswer: "d"
-                    }
+                    },
+                    {
+                      question: "En quelle année aux Mines Elyes est-il ?",
+                      answers: {
+                        a: "1A",
+                        b: "2A",
+                      },
+                      correctAnswer: "a"
+                    },
+                    {
+                      question: "Quels sont les rugbeux de la liste ?",
+                      answers: {
+                        a: "Elyès, Yann, Leïla, Lucas",
+                        b: "Alexiane, Maxime, Nico, Rep",
+                          c: "Nathan, Lucie, Tanguy, Julie B."
+                      },
+                      correctAnswer: "a"
+                    },
+                      {
+                      question: "Quand on encule un hérisson, qui a le plus mal ?",
+                      answers: {
+                        a: "Aymeric",
+                        b: "Le hérisson",
+                      },
+                      correctAnswer: "a"
+                    },
+                     {
+                      question: "Rep est capable de jouer le thème principal de Star Wars avec quel instrument ?",
+                      answers: {
+                        a: "Son pipo, qu’il travaille tous les vendredri après-midi",
+                        b: "Son accordéon, car il est très français… en fin de compte",
+                          c: "Son harmonica, car il est en réalité un cowboy à la retraite"
+                      },
+                      correctAnswer: "c"
+                    },
+                      {
+                      question: "Combien de temps Maxime a-t-il marché pour rejoindre la gare de Nice le premier weekend du MIG ?",
+                      answers: {
+                        a: "5min, le temps de rejoindre l’arrêt de bus",
+                        b: "2min : il a commandé un Uber Pool",
+                          c: "0min : il a ramené son chauffeur privé à Sophia",
+                          d: "4H18, le score des mecs balaises",
+                      },
+                      correctAnswer: "d"
+                    },
+                      {
+                      question: "Quelle langue Lucie pratique t elle avec assiduité ?",
+                      answers: {
+                        a: " La choppe, en biero, en octo, ou en rando",
+                        b: "L’elfique dans le seigneur des anneaux",
+                          c: "L’espagnol LV2, si senor desde nueve anos",
+                      },
+                      correctAnswer: "b"
+                    },
+                      {
+                      question: "Quel est l’endroit préféré d’Alexiane à Paris ?",
+                      answers: {
+                        a: "La bagagerie, car c’est près de l’octo",
+                        b: "Les douches du bench, pour la fraîcheur printanière d’un réveil à l’eau froide",
+                          c: "Le toit de la meuh, car c’est à côté de l’étage Nitro",
+                      },
+                      correctAnswer: "c"
+                    },
+                      {
+                      question: "Quelle est la spécialité de Sebastian en soirée ?",
+                      answers: {
+                        a: "La PLS",
+                        b: "avoir un max de charisme",
+                      },
+                      correctAnswer: "a"
+                    },
+                      {
+                      question: "Quels sont les playlists que l’on peut trouver dans le téléphone de Leïla ?",
+                      answers: {
+                        a: "Musique de merde pour ceux qui aiment pas le rap",
+                        b: "Rap commercial pour ceux qui aiment pas le bon rap",
+                          c: "Bon rap",
+                          d: "Rap US",
+                          e: "Rap pour grapher",
+                          f: "Autre chose que du rap",
+                      },
+                      correctAnswer: "a"
+                    },
+                        {
+                      question: "Qui aller voir si vous désirez un moment privilégié de détente et de relaxation, dans la proximité et la chaleur corporelle ?",
+                      answers: {
+                        a: "Tom, car c’est une Love Machine",
+                        b: "Vincent, car il est très doué en massage",
+                          c: "Leïla, car elle est toujours gentille et chaleureuse",
+                      },
+                      correctAnswer: "b"
+                    },
+                        {
+                      question: "Vrai ou Faux, une fois, Leïla a déjà réussi à passer un mois entier sans manger de grec.",
+                      answers: {
+                        a: "Vrai, mais le mois de février, faut pas déconner",
+                        b: "Faux, un grec par jour pour être en bonne santé",
+                      },
+                      correctAnswer: "a"
+                    },
+                      {
+                      question: "Dans quel sport Tanguy a-t-il atteint un niveau départemental en Lozère ?",
+                      answers: {
+                        a: "Ping pong",
+                        b: "Branlette",
+                          c: "Foot",
+                      },
+                      correctAnswer: "a"
+                    },
+                        {
+                      question: "Quel est l’accessoire de prédilection de Sebas, dont il ne se sépare ni la nuit ni sous la douche ?",
+                      answers: {
+                        a: "Des lunettes de soleil maxi stylées",
+                        b: "Son téléphone pour suivre avec assiduité la précampagne de loin pendant ses semaines ATHENS et PSL à l’étranger",
+                      },
+                      correctAnswer: "a"
+                    },
+                        {
+                      question: "On raconte que Lucie est tatouée quelque part. Mais que représente son tatouage ?",
+                      answers: {
+                        a: "Un canard avec une casquette",
+                        b: "'Sky is the limit'",
+                          c: "Un octogone"
+                      },
+                      correctAnswer: "a"
+                    },
+                        {
+                      question: "Quel membre de la liste se claque plus des soirées que des cours, alors qu’il se dit fêtard ?",
+                      answers: {
+                        a: "Nicolas Claquivain",
+                        b: "Nicoclaque Olivain",
+                      },
+                      correctAnswer: "a"
+                    },
+                        {
+                      question: "Où se trouvait Lucas lorsque Loïc était sur le point de conclure avec la cousine de son co’ ?",
+                      answers: {
+                        a: " En train de boire à l’interne",
+                        b: "En train de dormir place du village",
+                          c: "Dans son placard",
+                          d: "Dans le placard de Loïc",
+                      },
+                      correctAnswer: "d"
+                    },
+                        {
+                      question: "De quels instruments de musique Godefroy joue-t-il?",
+                      answers: {
+                        a: "Piano",
+                        b: "Clarinette",
+                          c: "Saxo",
+                          d: "Guitare",
+                          e: "Harmonica",
+                          f: "Accordéon",
+                          g: "Trombone",
+                          h: "Trompette"
+                      },
+                      correctAnswer: "a"
+                    },
                   ];
 
                   // display quiz right away
