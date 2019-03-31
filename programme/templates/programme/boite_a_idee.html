@@ -10,7 +10,7 @@
 
 {% block content %}
 
-<p>Blabla pour expliquer</p>
+<p>A toi de proposer tes idées les plus disruptives! Dis nous ce que tu aimerais améliorer aux Mines, les points sur lesquels tu voudrais qu'on se concentre lors de notre (potentiel) mandat.</p>
         <form method="post"  action="{% url 'programme:boite_a_idee' %}">
        {% csrf_token %}
 {{ form.as_p }}

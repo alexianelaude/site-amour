@@ -14,16 +14,9 @@
     <h2>Mesure concrète:</h2>
     <p>{{ mesure.concret }}</p>
 
-{% for reponse in reponses %}
-    {% if reponse.comment %}
-        <div class = "comment">{{ reponse.comment }}</div>
-    {% endif %}
-    {% empty %}
-    Personne n'a encore laissé de commentaire, <a href = "{% url 'programme:vote' mesure.id %}">soit le premier!</a>
-
-    {% endfor%}
-
+{% if user.is_authenticated %}
     <p><strong><a href = "{% url 'programme:vote' mesure.id %}">Je donne mon avis!</a></strong></p>
+    {% endif %}
     <p><strong><a href = "{% url 'programme:index' %}">Revenir au programme</a></strong></p>
 {% endblock %}
 

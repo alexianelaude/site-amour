@@ -9,11 +9,12 @@
 {% block title %}{{ mesure.name }}{% endblock %}
 
 {% block content %}
-{{ mesure.description }}
+    <p>Dis nous ce que tu penses de cette mesure, si tu as des réserves, des choses à ajouter, ou tout simplement pour nous dire que tu kiffes l'idée! Ces commentaires seront enregistrés et, si on est élus, ils seront pris en compte lorsque nous mettrons ces mesures en application.<p>
+<h3>La mesure concrète:</h3>
+    <p>{{ mesure.concret }}</p>
     <form method="post"  action="{% url 'programme:vote' mesure.id %}">
        {% csrf_token %}
-
-{{ form.as_p }}
+        {{ form.as_p }}
     <input type="submit" value="Envoyer" />
     </form>
 {% endblock %}
