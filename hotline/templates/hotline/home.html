@@ -14,9 +14,106 @@
 
 {% block content %}
     <!--Remettre les images stylées avec lien vers différentes hotlines -->
-    <a href = "{% url 'hotline:crepes' %}"><img src = "{% static 'img/crepes.jpg' %}"/></a>
-    <a href = "{%  url 'hotline:apero' %}"><img src = "{%  static 'img/apero.png' %}"/></a>
-    <a href = "{% url 'hotline:meme' %}"><img src = "{% static 'img/memetest.jpg' %}"/></a>
+    <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+                <div class="col-lg-4 col-sm-6">
+                    <a href = "{% url 'hotline:crepes' %}" class="portfolio-box">
+                        <img src="{% static 'img/crepes.png' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Hotline
+                                </div>
+                                <div class="project-name">
+                                    Crêpes
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="portfolio-box">
+                        <img src="{% static 'img/chore.png' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Hotline
+                                </div>
+                                <div class="project-name">
+                                    Choré
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="portfolio-box">
+                        <img src="{% static 'img/compliments.png' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Hotline
+                                </div>
+                                <div class="project-name">
+                                    Compliments
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="portfolio-box">
+                        <img src="{% static 'img/insultes.png' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Hotline
+                                </div>
+                                <div class="project-name">
+                                    Insultes
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="portfolio-box">
+                        <img src="{% static 'img/massage.png' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Hotline
+                                </div>
+                                <div class="project-name">
+                                    Massage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="portfolio-box">
+                        <img src="{% static 'img/muffin.png' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Hotline
+                                </div>
+                                <div class="project-name">
+                                    Muffin
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
 
 </body>
