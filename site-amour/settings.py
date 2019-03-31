@@ -33,6 +33,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["camino-royale.herokuapp.com", "127.0.0.1"]
 
+ADMINS = (
+    ('Camino Royale', 'liste.caminoroyale@gmail.com'))
+MANAGERS = ADMINS
 
 # Application definition
 
@@ -69,6 +72,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
 ]
 
 ROOT_URLCONF = 'site-amour.urls'
@@ -172,8 +176,8 @@ PASSWORD_HASHERS = [
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'alexsingap@gmail.com'
-EMAIL_HOST_PASSWORD = 'alex2647'
+EMAIL_HOST_USER = 'liste.caminoroyale@gmail.com'
+EMAIL_HOST_PASSWORD = 'vpgeekcamin'
 EMAIL_PORT = 587
 
 

@@ -181,23 +181,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Programme de la semaine</h2>
+                    <h2 class="section-heading">Planning de la semaine</h2>
                     <hr class="light">
                     <p class="text-faded">Une semaine de folie en perspective!
-                    {% for event in all_events %}
-                    <li>{{ event.name }}</li>
-                    {% endfor %}
-                    </p>
 
                     <section class="timeline">
                           <ol>
-                              {% for event in all_events %}
-                              <li>
-                              <div>
-                                <time>{{ event.date }}</time> {{ event.description }}
-                              </div>
-                            </li>
-                              {% endfor %}
                             <li>
                               <div>
                                 <time>1940</time> Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at pulvinar tortor ex eget ligula.
@@ -271,7 +260,7 @@
 
     <div class="row">
                 <div id = "events">
-                    <h2 class="section-heading" align="center"><br>Programme du jour</h2>
+                    <h2 class="section-heading" align="center"><br>Planning du jour</h2>
                     <hr class="primary">
                     <ul align="center">
                     {% for event in events_today %}
@@ -289,8 +278,8 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Programme de campagne</h2>
                     <hr class="light">
-                    <p class="text-faded">Coucou</p>
-                    <a href="{% url 'programme:index' %}" class="page-scroll btn btn-default btn-xl sr-button">Programme</a>
+                    <p class="text-faded"></p>
+                    <a href="{% url 'programme:index' %}" class="page-scroll btn btn-default btn-xl sr-button">Notre programme</a>
                 </div>
             </div>
         </div>
