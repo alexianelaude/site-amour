@@ -90,9 +90,6 @@
                     <li>
                         <a class="page-scroll" href="{% url 'partners' %}">Nos partenaires</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="{% url 'photologue:gallery-list' %}">Galerie</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -241,6 +238,8 @@
                                 <time>10/04, 22h</time>L'espion qui Meuhmait. Chauffez-vous pour la dernière soirée de la campagne, une interne en or
                               </div>
                             </li>
+                              <li></li>
+                              <li></li>
                           </ol>
 
                           <div class="arrows">
@@ -406,7 +405,7 @@
 
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <div class="portfolio-box">
+                    <a href = "{% url 'hotline:muffin' %}" class="portfolio-box">
                         <img src="{% static 'img/muffin.png' %}" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
@@ -414,11 +413,11 @@
                                     Hotline
                                 </div>
                                 <div class="project-name">
-                                    Muffin
+                                    Muffins
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

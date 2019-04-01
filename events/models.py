@@ -9,9 +9,5 @@ class Event(models.Model):
     slug = models.SlugField(max_length = 50)
     debut = models.DateTimeField(default = timezone.now)
     fin = models.DateTimeField(default = timezone.now)
-    gallerie = models.FilePathField(path = 'media/', null = True, blank = True, allow_folders = True)
     description = models.TextField(blank = True, null = True)
 
-    def images(self):
-        if self.gallerie:
-            return os.listdir(self.gallerie)

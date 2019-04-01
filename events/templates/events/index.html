@@ -15,17 +15,17 @@
 <h3>Événements terminés</h3>
 {% for event in past_events %}
         <li><a href = "{% url 'events:detail' event.id %}" >{{ event.name }}</a> le {{ event.debut.date}} à
-            {{ event.debut | time:"P"}} </li>
+            {{ event.debut | time:"H:i"}} </li>
 {% endfor %}
   <h3>Événements en cours</h3>
 {% for event in current_events %}
         <li><a href = "{% url 'events:detail' event.id %}" >{{ event.name }}</a> le {{ event.debut.date}} de
-            {{ event.debut | time:"P" }} à {{ event.fin | time:"P" }} </li>
+            {{ event.debut | time:"H:i" }} à {{ event.fin | time:"H:i" }} </li>
 {% endfor %}
 <h3>Événements à venir</h3>
 {% for event in events_to_come %}
             <li><a href = "{% url 'events:detail' event.id %}" >{{ event.name }}</a>
-                le {{ event.debut.date }} à {{ event.debut | time:"P" }} </li>
+                le {{ event.debut.date }} à {{ event.debut | time:"H:i" }} </li>
 {% endfor %}
 {% endblock %}
 </html>

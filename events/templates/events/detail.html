@@ -4,15 +4,9 @@
 
 {% block content %}
     <h2>Le {{ event.debut | date:"l d F"}}
-  de {{ event.debut| time:"P" }} à {{ event.fin | time:"P" }}
+  de {{ event.debut| time:"H:i" }} à {{ event.fin | time:"H:i" }}
 <p>{{ event.description }}</p>
 
-    <div id = event_gallery>
-    {% if event.gallerie %}
-    {% for image in event.images %}
-        <img src = "/{{ event.gallerie }}/{{ image }}"/>
-    {% endfor %}
-    {% endif %}
-    </div>
+
 {% endblock %}
 
