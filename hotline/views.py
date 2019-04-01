@@ -40,7 +40,7 @@ def new_apero(request):
     return render(request, 'hotline/apero.html', locals())
 
 def random_meme():
-    memes = os.listdir('media/memes/')
+    memes = os.listdir('static/memes/')
     k = random.randint(0, len(memes)-1)
     return memes[k]
 
@@ -71,7 +71,7 @@ def new_meme(request):
     return render(request, 'hotline/meme.html', locals())
 
 def new_petitdej(request):
-    form = PetitDejForm(request.POST or None, initial = {'delivery_time': time(8,0,0)})
+    form = PetitDejForm(request.POST or None, initial = {'delivery_time': time(7,0,0)})
     if form.is_valid():
         all_orders = PetitDej.objects.filter(user = request.user)
         if len(all_orders) > 0:
