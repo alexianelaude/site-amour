@@ -9,7 +9,7 @@ document.body.onkeydown = function( e ) {
         68: 'right',
         83: 'down',
         90: 'rotate',
-        32: 'drop'
+        88: 'drop'
     };
     if ( typeof keys[ e.keyCode ] != 'undefined' ) {
         keyPress( keys[ e.keyCode ] );
