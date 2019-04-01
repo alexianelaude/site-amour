@@ -40,7 +40,7 @@ def new_apero(request):
     return render(request, 'hotline/apero.html', locals())
 
 def random_meme():
-    memes = os.listdir('media/memes/')
+    memes = os.listdir('static/memes/')
     k = random.randint(0, len(memes)-1)
     return memes[k]
 
@@ -51,27 +51,19 @@ def new_meme(request):
     form = MemeForm(request.POST or None)
     if form.is_valid():
         all_orders = Meme.objects.filter(user = request.user, order_date = timezone.now())
-        if len(all_orders) > 0:
+        if len(all_orders) > 30:
             messages.add_message(request, messages.ERROR, "Un seul meme par jour!")
             return render(request,'home.html')
         if request.user.is_authenticated:
             meme = form.save(commit = False)
             meme.user = request.user
             meme.save()
-            mail = EmailMessage(
-                'Voici un Meme de qualité supérieur',
-                'Hey',
-                'alexsingap@gmail.com',
-                [meme.user.email]
-            )
-            mail.attach_file(BASE_DIR+'/static/memes/'+random_meme())
-            mail.send()
-            messages.add_message(request, messages.SUCCESS, 'Tu as bien recu un meme, check ta boîte mail!')
-            return redirect(reverse('home'))
+            im_url = 'memes/'+random_meme()
+            return render(request,'hotline/meme_display.html',locals())
     return render(request, 'hotline/meme.html', locals())
 
 def new_petitdej(request):
-    form = PetitDejForm(request.POST or None, initial = {'delivery_time': time(8,0,0)})
+    form = PetitDejForm(request.POST or None, initial = {'delivery_time': time(7,0,0)})
     if form.is_valid():
         all_orders = PetitDej.objects.filter(user = request.user)
         if len(all_orders) > 0:

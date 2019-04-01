@@ -43,8 +43,8 @@ class PetitDejForm(forms.ModelForm):
 
     def clean(self):
         delivery_time = self.cleaned_data['delivery_time']
-        if (delivery_time < datetime.time(8,0,0)) or (delivery_time > datetime.time(12,0,0)):
-            raise forms.ValidationError("Choisis une heure entre 8h et midi s'il te plaît")
+        if (delivery_time < datetime.time(7,0,0)) or (delivery_time > datetime.time(9,30,0)):
+            raise forms.ValidationError("Choisis une heure entre 7h et 9h30 s'il te plaît")
 
 class AperoForm(forms.ModelForm):
     class Meta:
