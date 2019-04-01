@@ -130,7 +130,7 @@
 <div class="sidebar">
     <div  id = "chat">
         <h3>Chat:</h3>
-        <ol align="left" class="list-group">
+        <ol align="left" class="list-group" id="chat_scroll">
             {% for chat in last_chats %}
                 <li class="list-group-item">
                     <b>{{ chat.user.username }}:</b> {{ chat.message }} <sub>{{ chat.pub_date }}</sub>
@@ -232,6 +232,14 @@
 
     <!-- Theme JavaScript -->
     <script src="{% static 'js/creative.js' %}"></script>
+    <script>
+        var element = document.getElementById("chat_scroll");
+        element.scrollTop = element.scrollHeight;
+        function updateScroll(){
+            var element = document.getElementById("chat_scroll");
+            element.scrollTop = element.scrollHeight;
+        }
+    </script>
 
 </body>
 
