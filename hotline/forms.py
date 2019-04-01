@@ -71,6 +71,15 @@ class AperoForm(forms.ModelForm):
         if vin+cidre+biere+cocktail+virgin_cocktail > quantity:
             raise forms.ValidationError('Il y a trop de boissons, recomptez')
 
+    def clean_delivery_time(self):
+        delivery_time = self.cleaned_data['delivery_time']
+        if delivery_time < timezone.now():
+            raise forms.ValidationError('Laisse nous un peu de temps!')
+        if delivery_time < datetime.time(18,30,0):
+            raise forms.ValidationError('Les apéros ne sont livrés qu\'à partir de 18h30')
+        if delivery_time > datetime.time(21,0,0):
+            raise forms.ValidationError('Il n\'y a plus d\'apéros après 21h')
+
 
 class MemeForm(forms.ModelForm):
     class Meta:
@@ -99,3 +108,6 @@ class MuffinForm(forms.ModelForm):
         order_time = self.cleaned_data['order_time']
         if order_time.datetime.time > datetime.time(12,0,0):
             raise forms.ValidationError("Il est trop tard pour commander aujourd'hui, reviens demain!")
+
+
+
