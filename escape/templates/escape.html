@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>EscapeGame</title>
+</head>
+<body>
+{% block title %}Inscription à notre Escape game{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <p>Inscrivez-vous à notre Escape Game, imaginé de toute pièce par notre équipe. Chaque partie dure au MAXIMUM une demi-heure (moins si vous êtes rapides!) et se joue à quatre joueurs.</p>
+        <form method="post"  action="{% url 'escape:escape' %}">
+                 {% csrf_token %}
+                {{ form |crispy }}  <!-- form.as_p -->
+                <input type="submit" class="btn btn-success" value = "Réserver"/>
+                </form>
+    {% else %}
+    <p>Connecte toi pour t'inscrire à l'escape game!</p>
+    {% endif %}
+{% endblock %}
+</body>
+</html>
