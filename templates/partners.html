@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends 'base.html' %}
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>Nos partenaires</title>
@@ -10,8 +11,84 @@
 {% block title %}Nos partenaires{% endblock %}
 
 {% block content %}
-On les <3
 <!--Tous les logos des partenaires, avec lien qui renvoie vers leur site qd on clique desssus-->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Nos partenaires principaux</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href = "https://www.societegenerale.fr" />
+                        <img src="{% static 'img/partenaires/societe-generale.png' %}" height="50">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href = "https://www.octofinances.com/fr/" />
+                        <img src="{% static 'img/partenaires/octo-finances.jpg' %}" height="60">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href = "http://www.mc2i.fr"/>
+                        <img src="{% static 'img/partenaires/mc2i.png' %}" height="60">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href = "http://pumpkin-app.co" />
+                        <img src="{% static 'img/partenaires/pumpkin.jpg' %}" height="60">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Nos partenaires </h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href = "https://www.societegenerale.fr" />
+                        <img src="{% static 'img/partenaires/societe-generale.png' %}" height="50">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href = "https://www.octofinances.com/fr/" />
+                        <img src="{% static 'img/partenaires/octo-finances.jpg' %}" height="60">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href = "http://www.mc2i.fr"/>
+                        <img src="{% static 'img/partenaires/mc2i.png' %}" height="60">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <a href = "http://pumpkin-app.co" />
+                        <img src="{% static 'img/partenaires/pumpkin.jpg' %}" height="60">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
 
 </body>
