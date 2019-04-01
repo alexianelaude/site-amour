@@ -78,8 +78,8 @@ body, container {
 /* The side navigation menu */
 .sidebar {
   margin: 0;
-  padding: 20px;
-  width: 20%;
+  padding: 0px 10px;
+  width: 25%;
   background-color: #ffffff;
   position: fixed;
   height: 100%;

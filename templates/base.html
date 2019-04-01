@@ -113,6 +113,26 @@
 
 <section>
 <div class="sidebar">
+    <div  id = "chat">
+        <h3>Chat:</h3>
+        <ul align="left" class="list-group">
+            {% for chat in last_chats %}
+                <li class="list-group-item">
+                    <b>{{ chat.user.username }}:</b> {{ chat.message }} <sub>{{ chat.pub_date }}</sub>
+                </li>
+                {% empty %}
+                 Personne n'a envoyé de message :(
+            {% endfor %}
+         </ul>
+        {% if user.is_authenticated %}
+            <form method="post"  action="{% url 'chat:new_chat' %}">
+                {% csrf_token %}
+                {{ chat_form.as_p }}
+                <input type="submit" value = "Envoyer"/>
+            </form>
+        {% endif %}
+    </div>
+
     <div id = "poll">
         <h3>Sondage du jour:</h3>
     <ul>
@@ -153,26 +173,6 @@
             Pas d'événements aujourd'hui
             {% endfor %}
         </ul>
-    </div>
-
-    <div  id = "chat">
-        <h3>Chat:</h3>
-        <ul align="left" class="list-group">
-            {% for chat in last_chats %}
-                <li class="list-group-item">
-                    <b>{{ chat.user.username }}:</b> {{ chat.message }} <sub>{{ chat.pub_date }}</sub> 
-                </li>
-                {% empty %}
-                 Personne n'a envoyé de message :(
-            {% endfor %}
-         </ul>
-        {% if user.is_authenticated %}
-            <form method="post"  action="{% url 'chat:new_chat' %}">
-                {% csrf_token %}
-                {{ chat_form.as_p }}
-                <input type="submit" value = "Envoyer"/>
-            </form>
-        {% endif %}
     </div>
 </div>
 
