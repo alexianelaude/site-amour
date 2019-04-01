@@ -16,7 +16,7 @@ def escape_game(request):
         full_date = datetime.datetime.combine(date, time)
         full_date = pytz.timezone('Europe/Amsterdam').localize(full_date)
         all_orders = EscapeGame.objects.filter(datetime = full_date)
-        a_inscrire = form.cleaned_data['quantity']
+        a_inscrire = 4
         deja_inscrit = 0
         for order in all_orders:
             deja_inscrit += order.quantity
