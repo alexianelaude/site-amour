@@ -3,6 +3,7 @@
 
 {% load static %}
 {% load tags %}
+{% load crispy_forms_tags %}
 
 <head>
     <meta charset="utf-8">
@@ -142,8 +143,8 @@
         {% if user.is_authenticated %}
             <form method="post"  action="{% url 'chat:new_chat' %}">
                 {% csrf_token %}
-                {{ chat_form.as_p }}
-                <input type="submit" value = "Envoyer" class="text-center"/>
+                {{ chat_form | crispy }}
+                <input type="submit" value = "Envoyer" class="btn btn-success text-center"/>
             </form>
         {% endif %}
     </div>
