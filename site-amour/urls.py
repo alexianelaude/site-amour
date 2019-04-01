@@ -37,8 +37,6 @@ urlpatterns = [
     path('programme/', include('programme.urls')),
     path('hotline/', include('hotline.urls')),
     path('quiz/', TemplateView.as_view(template_name = 'quiz.html'), name='quiz'),
-    path('escape/', include('escape.urls'))
-
 ]
 
 if settings.DEBUG:

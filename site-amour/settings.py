@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'team',
     'photologue',
     'sortedm2m',
-    'escape',
     'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
