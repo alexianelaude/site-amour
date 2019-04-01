@@ -7,7 +7,6 @@ html,
 body {
   height: 100%;
   width: 100%;
-  overflow-x : hidden;
 }
 body {
   font-family: 'century-gothic', 'Helvetica Neue', Arial, sans-serif;
@@ -79,8 +78,7 @@ aside {
 
 ul #chat {
   list-style-type: none;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: scroll;
 }
 
 .no-padding {

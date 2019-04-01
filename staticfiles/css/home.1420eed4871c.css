@@ -7,6 +7,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  overflow-x : hidden;
 }
 body {
   font-family: 'century-gothic', 'Helvetica Neue', Arial, sans-serif;
@@ -78,7 +79,8 @@ aside {
 
 ul #chat {
   list-style-type: none;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .no-padding {
@@ -180,7 +182,7 @@ header {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: url("/static/img/header.jpg");
+  background-image: url("/static/img/header.bfb20444af09.jpg");
   text-align: center;
   color: white;
 }
@@ -328,7 +330,7 @@ header .header-content .header-content-inner p {
   padding-left: 0;
 }
 .btn-default {
-  color: black;
+  color: #222222;
   background-color: white;
   border-color: white;
   -webkit-transition: all 0.35s;
@@ -341,9 +343,9 @@ header .header-content .header-content-inner p {
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
-  color: black;
-  background-color: white;
-  border-color: white;
+  color: #222222;
+  background-color: #f2f2f2;
+  border-color: #ededed;
 }
 .btn-default:active,
 .btn-default.active,
@@ -373,12 +375,12 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-default .badge {
   color: white;
-  background-color: black;
+  background-color: #222222;
 }
 .btn-primary {
   color: white;
-  background-color: rgba(219, 0, 0, 1);
-  border-color: rgba(219, 0, 0, 1);
+  background-color: #d60018;
+  border-color: #d60018;
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s;
@@ -390,8 +392,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
   color: white;
-  background-color: rgba(219, 0, 0, 1);
-  border-color: rgba(219, 0, 0, 1);
+  background-color: #ee4b28;
+  border-color: #ed431f;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -416,11 +418,11 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: rgba(219, 0, 0, 1);
-  border-color: rgba(219, 0, 0, 1);
+  background-color: #d60018;
+  border-color: #d60018;
 }
 .btn-primary .badge {
-  color: rgba(219, 0, 0, 1);
+  color: #d60018;
   background-color: white;
 }
 .btn {
