@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
 <head>
     <meta charset="UTF-8">
     <title>Boite à idées</title>
@@ -13,8 +15,8 @@
 <p>A toi de proposer tes idées les plus disruptives! Dis nous ce que tu aimerais améliorer aux Mines, les points sur lesquels tu voudrais qu'on se concentre lors de notre (potentiel) mandat.</p>
         <form method="post"  action="{% url 'programme:boite_a_idee' %}">
        {% csrf_token %}
-{{ form.as_p }}
-    <input type="submit" value="Submit" />
+{{ form |crispy }}
+    <input type="submit" class="btn btn-success" value="Envoyer" />
         </form>
 
 
