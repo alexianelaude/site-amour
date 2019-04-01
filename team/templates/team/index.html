@@ -4,7 +4,7 @@
 
 {% load static %}
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
 
     <title>Notre équipe</title>
@@ -15,8 +15,9 @@
         <section class = "no-padding" id = "portofolio">
                 <h2> Bureau </h2>
                 <div class="row">
+
                 <div class="col-lg-4 col-sm-6">
-                    <div class="portfolio-box">
+                    <a href="#" class="portfolio-box">
                         <figure>
                         <img src="{% static 'img/Photos/ThibaultDos.jpg' %}" class="img-responsive" alt="Static Image" data-alt="{% static 'img/Gifs/Thibault.gif' %}">
                         </figure>
@@ -30,7 +31,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-sm-6">
@@ -471,7 +472,8 @@
 
 {% endblock %}
 
-
+</section>
 
 </body>
+
 </html>
