@@ -126,7 +126,7 @@
             <form method="post"  action="{% url 'chat:new_chat' %}">
                 {% csrf_token %}
                 {{ chat_form.as_p }}
-                <input type="submit" value = "Envoyer"/>
+                <input type="submit" value = "Envoyer" class="text-center"/>
             </form>
         {% endif %}
     </div>
@@ -192,7 +192,7 @@
     </div>
 
 
-<div class="content">
+<div class="content" >
 <h1>{% block title %}{% endblock %}</h1>
   {% block content %}
 

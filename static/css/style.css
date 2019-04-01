@@ -7,7 +7,7 @@
 	
 	display:block;
 	width : 300px;
-	height : 100px;
+	height : 50px;
 
 	margin-bottom: 10px;
 }
@@ -26,16 +26,38 @@ canvas {
 }
 
 #playbutton {
-    width: 100px;
-    height: 50px;
-	display: block;
-    margin: auto;
-    margin-top: 10px;
-    font-family: Arial, sans-serif;
-    font-size: 30px;
-    font-weight: bold;
-    background-color: white;
     cursor: pointer;
+}
+
+.btn-default {
+  color: black;
+  background-color: white;
+  border-color: white;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.btn-primary {
+  color: white;
+  background-color: rgba(219, 0, 0, 1);
+  border-color: rgba(219, 0, 0, 1);
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+
+.btn {
+  font-family: 'century-gothic', 'Helvetica Neue', Arial, sans-serif;
+  border: none;
+  border-radius: 300px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.btn-xl {
+  padding: 15px 30px;
 }
 
 #center {
