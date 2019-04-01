@@ -97,7 +97,10 @@
                         <a class="page-scroll" href="{% url 'programme:index' %}">Notre programme</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{% url 'hotline:home' %}">Nos hotlines</a>
+                        <a class="page-scroll" href="{% url 'hotline:home' %}">Hotlines</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'bouffe' %}">Bouffe</a>
                     </li>
                     <li id="content-desktop">
                         <a class="page-scroll" href="{% url 'tetris' %}">Jeu</a>
@@ -106,7 +109,7 @@
                         <a class="page-scroll" href="{% url 'quiz' %}">Quiz</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{% url 'partners' %}">Nos partenaires</a>
+                        <a class="page-scroll" href="{% url 'partners' %}">Partenaires</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="{% url 'escape:escape' %}">Notre Escape game</a>
@@ -604,6 +607,7 @@
     <!-- Theme JavaScript -->
     <script src="{% static 'js/creative.js' %}"></script>
     <script src="{% static 'js/timeline.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
     <script>
         var element = document.getElementById("chat_scroll");

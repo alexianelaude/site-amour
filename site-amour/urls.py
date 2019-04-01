@@ -37,6 +37,7 @@ urlpatterns = [
     path('programme/', include('programme.urls')),
     path('hotline/', include('hotline.urls')),
     path('quiz/', TemplateView.as_view(template_name = 'quiz.html'), name='quiz'),
+    path('bouffe/', TemplateView.as_view(template_name = 'bouffe.html'), name='bouffe'),
     path('escape/', include('escape.urls'))
 ]
 
