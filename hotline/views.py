@@ -10,7 +10,7 @@ import random
 
 # Create your views here.
 def new_crepes(request):
-    form = CrepesForm(request.POST or None, initial = {'delivery_date':timezone.now(), 'delivery_time': timezone.now() + timedelta(hours = 1)})
+    form = CrepesForm(request.POST or None, initial = {'delivery_date':timezone.now(), 'delivery_time': timezone.now() + timedelta(hours = 2)})
     if form.is_valid():
         current_order = Crepes.objects.filter(user = request.user, delivered = False)
         if len(current_order) > 0:
@@ -25,7 +25,7 @@ def new_crepes(request):
     return render(request, 'hotline/crepes.html', locals())
 
 def new_apero(request):
-    form = AperoForm(request.POST or None, initial = {'delivery_time': timezone.now() + timedelta(hours = 1)})
+    form = AperoForm(request.POST or None, initial = {'delivery_time': timezone.now() + timedelta(hours = 2)})
     if form.is_valid():
         all_orders = Apero.objects.filter(user = request.user, delivery_date = timezone.now())
         if len(all_orders) > 0:
@@ -64,7 +64,7 @@ def new_meme(request):
                 'alexsingap@gmail.com',
                 [meme.user.email]
             )
-            mail.attach_file(BASE_DIR+'/media/memes/'+random_meme())
+            mail.attach_file(BASE_DIR+'/static/memes/'+random_meme())
             mail.send()
             messages.add_message(request, messages.SUCCESS, 'Tu as bien recu un meme, check ta boîte mail!')
             return redirect(reverse('home'))
