@@ -9,8 +9,8 @@ from django.dispatch import receiver
 class Mesure(models.Model):
     name = models.CharField(max_length = 300)
     preambule = models.TextField(null = True)
-    constat = models.TextField(null = True)
-    concret = models.TextField(null = True)
+    constat = models.TextField(null = True, blank = True)
+    concret = models.TextField(null = True, blank = True)
 
 
 class Avis(models.Model):

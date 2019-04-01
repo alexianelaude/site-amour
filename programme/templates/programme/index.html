@@ -31,7 +31,10 @@ L’objectif est de s’assurer que ce programme sera bien mis en place au cours
 {% endfor %}
 
     {% if user.is_authenticated %}
-    <mark><a href = "{% url 'programme:boite_a_idee' %}">Boîte à idée</a></mark>
+    <div class="container text-center">
+                <a href="{% url 'programme:boite_a_idee' %}" class="btn btn-default btn-xl sr-button">Boîte à idées</a>
+            </div>
+        </div>
     {% endif %}
 {% endblock %}
 </body>
