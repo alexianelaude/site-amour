@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="overflow: hidden">
 
 {% extends 'base.html' %}
 {% load static %}
@@ -7,30 +7,32 @@
     <head>
         <title>Tetris</title>
     </head>
-    <body>
+    <body style="overflow: hidden">
 
         {% block content %}
-
-            <div>
-
-                <h1>Touches clavier:</h1>
-                <ul>
-                    <li> Rotation: Z	</li>
-                    <li> Déplacer: Q, S et D	</li>
-                    <li> chute: Espace  </li>
-                </ul>
-
-            </div>
         <audio id="clearsound" src="{% static 'sound/clear.mp3'%}" preload="auto"></audio>
 		<audio id="gamesound" src="{% static 'sound/tetris.mp3'%}" preload="auto"></audio>
 		<audio id="gameover" src="{% static 'sound/gameover.mp3'%}" preload="auto"></audio>
 
+        <div class="row">
+        <div class="col-lg-3 text-center">
 
+                <h3>Touches clavier:</h3>
+                <ul>
+                    <li align="left"> Rotation: Z	</li>
+                    <li align="left"> Déplacer: Q, S et D	</li>
+                    <li align="left"> Chute: X  </li>
+                </ul>
+
+        </div>
+            <div class="col-lg-6">
 
 		<div id="dialog"> <img src ="{% static 'Logo.png'%}" height ='50' id=dialoglogo> <p id=dialogbox></p> </div>
         <canvas width='300' height='550'></canvas>
         <button id="playbutton" onclick="playButtonClicked();">Jouer</button>
+            </div>
 
+        </div>
 
         <script src="{% static 'js_tetris/tetris.js'%}"></script>
         <script src="{% static 'js_tetris/controller.js'%}"></script>
