@@ -24,13 +24,18 @@
                     <li align="left"> Chute: Espace  </li>
                 </ul>
             <button id="playbutton" onclick="playButtonClicked();" class="btn btn-default btn-xl sr-button">Jouer</button>
-            <!--<button onclick="playButtonClicked();" class="page-scroll btn btn-default btn-xl sr-button" style="cursor: pointer">Jouer</button>-->
+                <p id=dialogbox ></p>
         </div>
 
-            <div class="col-lg-6">
 
-		<div id="dialog"> <img src ="{% static 'Logo.png'%}" height ='50' id=dialoglogo> <p id=dialogbox></p> </div>
-        <canvas width='300' height='550'></canvas>
+            <div class="col-lg-9">
+                <div class="row">
+
+                    <div class="col-lg-3"> <img src ="{% static 'Logo.png'%}" height ='40' id=dialoglogo></div>
+
+                </div>
+
+                <canvas width='300' height='550'></canvas>
 
             </div>
 

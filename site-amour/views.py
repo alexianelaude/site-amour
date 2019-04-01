@@ -49,6 +49,6 @@ def new_user(request):
 def tetris(request):
     if request.method == 'POST' and request.user.is_authenticated:
         joueur = Profil.objects.filter(user = request.user)
-        joueur.highscore = score
+        joueur.highscore = request.POST['score']
         joueur.save()
     return render(request, 'tetris.html')
