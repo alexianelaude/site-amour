@@ -12,16 +12,17 @@
 {% block title %}Inscription à notre Escape game{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
+<!--{% if user.is_authenticated %}
     <p>Inscrivez-vous à notre Escape Game, imaginé de toute pièce par notre équipe. Chaque partie dure au MAXIMUM une demi-heure (moins si vous êtes rapides!) et se joue à quatre joueurs.</p>
         <form method="post"  action="{% url 'escape:escape' %}">
                  {% csrf_token %}
-                {{ form |crispy }}  <!-- form.as_p -->
+                {{ form |crispy }}
                 <input type="submit" class="btn btn-success" value = "Réserver"/>
                 </form>
     {% else %}
     <p>Connecte toi pour t'inscrire à l'escape game!</p>
-    {% endif %}
+    {% endif %}-->
+    Vous aurez plus de détails sur notre escape game très bientôt. Tu pourras notamment réserver un créneau Escape Game avec ton équipe à partir de jeudi
 {% endblock %}
 </body>
 </html>
