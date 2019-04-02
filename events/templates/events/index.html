@@ -27,5 +27,29 @@
             <li><a href = "{% url 'events:detail' event.id %}" >{{ event.name }}</a>
                 le {{ event.debut.date }} à {{ event.debut | time:"H:i" }} </li>
 {% endfor %}
+<br>
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="portfolio-box">
+                        <div class="portfolio-box">
+                        <img src="{% static 'img/SL.jpeg' %}" class="img-responsive" alt="">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="portfolio-box">
+                        <img src="{% static 'img/interne.jpeg' %}" class="img-responsive" alt="">
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="portfolio-box">
+                    <!--<a href = "" class="portfolio-box">-->
+                        <div class="portfolio-box">
+                        <img src="{% static 'img/externeDeux.jpeg' %}" class="img-responsive" alt="">
+                        </div>
+                    </div>
+                </div>
 {% endblock %}
 </html>
