@@ -11,6 +11,8 @@ class Mesure(models.Model):
     preambule = models.TextField(null = True)
     constat = models.TextField(null = True, blank = True)
     concret = models.TextField(null = True, blank = True)
+    def __str__(self):
+        return self.name
 
 
 class Avis(models.Model):
