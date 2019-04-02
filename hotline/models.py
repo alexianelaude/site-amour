@@ -11,7 +11,7 @@ class Hotline(models.Model):
     order_time = models.DateTimeField(auto_now_add = True)
     delivery_time = models.TimeField()
     delivery_date = models.DateField(default = timezone.now)
-    delivery_place = models.CharField(max_length = 500, default = 'Meuh')
+    delivery_place = models.CharField(max_length = 500)
     comment = models.TextField(null = True, blank = True)
     delivered = models.BooleanField(default = False)
 

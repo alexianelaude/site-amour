@@ -31,12 +31,8 @@ SECRET_KEY = '_#$=qp=az5-9x2%4^gjt#4^feu)b8#4jp1-*8r)#03&&tnb#j1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["camino-royale.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
-ADMINS = (
-    ('Camino Royale', 'liste.caminoroyale@gmail.com'))
-
-MANAGERS = ADMINS
 
 # Application definition
 
