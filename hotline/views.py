@@ -92,7 +92,7 @@ def new_muffin(request):
             hot = form.save(commit = False)
             hot.user = request.user
             hot.save()
-            messages.add_message(request, messages.SUCCESS, 'Nous avons bien recu votre commande, amusez vous sur le site en attendant votre petit dej')
+            messages.add_message(request, messages.SUCCESS, 'Nous avons bien recu votre commande, amusez vous sur le site en attendant votre muffin')
             return redirect(reverse('home'))
     return render(request, 'hotline/muffin.html', locals())
 

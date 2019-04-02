@@ -16,7 +16,7 @@
     <p>Une hotline muffin, tu en as rêvée, on l'a fait!</p>
 <form method="post"  action="{% url 'hotline:muffin' %}">
                  {% csrf_token %}
-                {{ form |crispy }}  <!-- form.as_p -->
+                {{ form | crispy }}  <!-- form.as_p -->
                 <input type="submit" class="btn btn-success" value = "Commander"/>
                 </form>
     {% else %}
