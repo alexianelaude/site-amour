@@ -13,7 +13,6 @@
 {% block content %}
 
 <h3>Événements terminés</h3>
-    <section>
 {% for event in past_events %}
         <li><a href = "{% url 'events:detail' event.id %}" >{{ event.name }}</a> le {{ event.debut.date}} à
             {{ event.debut | time:"H:i"}} </li>
@@ -28,9 +27,7 @@
             <li><a href = "{% url 'events:detail' event.id %}" >{{ event.name }}</a>
                 le {{ event.debut.date }} à {{ event.debut | time:"H:i" }} </li>
 {% endfor %}
-    </section>
-    <br>
-    <section>
+<br>
 
                 <div class="col-lg-4 col-sm-6">
                     <div class="portfolio-box">
@@ -54,6 +51,5 @@
                         </div>
                     </div>
                 </div>
-    </section>
 {% endblock %}
 </html>
