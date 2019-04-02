@@ -7,8 +7,8 @@ class MesureAdmin(admin.ModelAdmin):
 admin.site.register(Mesure, MesureAdmin)
 
 class AvisAdmin(admin.ModelAdmin):
-    list_display = ['note','comment','user']
-    list_filter = ('note',)
+    list_display = ['mesure','note','comment','user']
+    list_filter = ('note','comment')
 
 admin.site.register(Avis, AvisAdmin)
 
