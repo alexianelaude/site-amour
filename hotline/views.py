@@ -10,7 +10,7 @@ import random
 
 # Create your views here.
 def new_crepes(request):
-    form = CrepesForm(request.POST or None, initial = {'delivery_date':timezone.now(), 'delivery_time': timezone.now() + timedelta(hours = 2)})
+    form = CrepesForm(request.POST or None, initial = {'delivery_time': timezone.now() + timedelta(hours = 2)})
     if form.is_valid():
         current_order = Crepes.objects.filter(user = request.user, delivered = False)
         if len(current_order) > 0:

@@ -12,7 +12,7 @@ def escape_game(request):
     form = EscapeGameForm(request.POST or None)
     if form.is_valid():
         time = form.cleaned_data['time']
-        date = form.cleaned_data['date']
+        date = timezone.now()
         full_date = datetime.datetime.combine(date, time)
         full_date = pytz.timezone('Europe/Amsterdam').localize(full_date)
         all_orders = EscapeGame.objects.filter(datetime = full_date)

@@ -48,3 +48,4 @@ class Muffin(Hotline):
     gout_muffin = models.CharField(max_length = 500)
 
 
+

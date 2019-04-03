@@ -7,13 +7,12 @@ import pytz
 class CrepesForm(forms.ModelForm):
     class Meta:
         model = Crepes
-        fields = ['garniture','delivery_time','delivery_date', 'delivery_place', 'comment']
-        labels = {'delivery_time': 'Heure de livraison', 'delivery_date': 'Date de livraison','delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?', 'garniture': 'Ta crêpe tu l\'aimes?'}
-        widgets = {'delivery_date': forms.widgets.SelectDateWidget(attrs={'style': 'display: inline-block; width: 33%;'}),
-                   'garniture': forms.widgets.Select(choices=[('chocolat', 'Au chocolat fondu'), ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise")])}
+        fields = ['garniture','delivery_time', 'delivery_place', 'comment']
+        labels = {'delivery_time': 'Heure de livraison','delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?', 'garniture': 'Ta crêpe tu l\'aimes?'}
+        widgets = {'garniture': forms.widgets.Select(choices=[('chocolat', 'Au chocolat fondu'), ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise")])}
 
     def clean(self):
-        delivery_date = self.cleaned_data['delivery_date']
+        delivery_date = timezone.now()
         delivery_time = self.cleaned_data['delivery_time']
         delivery = datetime.datetime.combine(delivery_date, delivery_time)
         delivery = pytz.timezone('Europe/Amsterdam').localize(delivery)
@@ -58,8 +57,8 @@ class AperoForm(forms.ModelForm):
                   'vin': 'Combien de verres de vin?',
                   'biere': 'Combien de demis de bière?',
                   'cidre': 'Combien de verres de cidre?',
-                  'cocktail': 'Combien de verres du cocktail du jour ultra quali?',
-                  'virgin_cocktail': 'Combien de verres du cocktail sans alcool pour démarrer la soirée en douceur?',
+                  'cocktail': 'Combien de verres de saké?',
+                  'virgin_cocktail': 'Combien de verres du sirop de litchi pour démarrer la soirée en douceur?',
                   'vege': 'Combien de personnes sont végétariennes parmi vous?',
                   'comment': 'Un petit commentaire?'}
 
