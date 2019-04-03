@@ -188,7 +188,7 @@
         <h3>Evénements du jour:</h3>
         <ul>
         {% for event in events_today %}
-            <li><a href = "{% url 'events:detail' event.id %}">{{ event.name }}</a> à {{ event.debut | time:"P" }}</li>
+            <li><a href = "{% url 'events:detail' event.id %}">{{ event.name }}</a> à {{ event.debut | time:"H:i" }}h</li>
             {% empty %}
             Pas d'événements aujourd'hui
             {% endfor %}
