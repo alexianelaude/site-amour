@@ -190,6 +190,12 @@ function valid( offsetX, offsetY, newCurrent ) {
 						document.getElementById('gameover').play();
 						document.getElementById('dialogbox').setAttribute('style', 'background-color: rgba(219,0,0,1); ');
 						document.getElementById('dialogbox').innerHTML= 'Game Over ! Score : '+ score;
+
+						$.get("/tetris/add_score", {
+						        "score": score,
+                                "token": token
+                            }
+                        )
 						
                     } 
                     return false;
@@ -259,3 +265,5 @@ function beyondFaster() {
 	intervalPts = setInterval(increaseScore, 100);
 	
 }
+
+// Affichage des meilleurs score

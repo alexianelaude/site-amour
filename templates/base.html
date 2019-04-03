@@ -30,6 +30,7 @@
     <meta name="msapplication-TileImage" content="{% static 'favicon/ms-icon-144x144.png' %}">
     <meta name="theme-color" content="#ffffff">
 
+
     <!-- Bootstrap Core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -109,7 +110,7 @@
                         <a class="page-scroll" href="{% url 'bouffe' %}">Bouffe</a>
                     </li>
                     <li  id="content-desktop">
-                        <a class="page-scroll" href="{% url 'tetris' %}">Jeu</a>
+                        <a class="page-scroll" href="{% url 'tetris:tetris' %}">Jeu</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="{% url 'quiz' %}">Quiz</a>
