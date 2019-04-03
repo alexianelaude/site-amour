@@ -10,7 +10,7 @@ def tetris(request):
         joueur.highscore = request.POST['score']
         joueur.save()
 
-    scores = TetrisModel.objects.all().order_by("-score")[:1]
+    scores = TetrisModel.objects.all().order_by("-score")[:10]
 
     return render(request, 'tetris.html', locals())
 

@@ -35,7 +35,9 @@
              <h3>Meilleur score</h3>
         <ul id="scores">
             {% for s in scores %}
+                <li>
                 <div align="left">{{ s.user }} : {{ s.score }}</div>
+                </li>
             {% endfor %}
         </ul>
     </div>
