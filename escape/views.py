@@ -4,7 +4,7 @@ from .models import EscapeGame
 import datetime
 import pytz
 from django.contrib import messages
-
+from django.utils import timezone
 
 # Create your views here.
 
