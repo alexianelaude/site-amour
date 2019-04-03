@@ -16,8 +16,8 @@ class CrepesForm(forms.ModelForm):
         delivery_time = self.cleaned_data['delivery_time']
         delivery = datetime.datetime.combine(delivery_date, delivery_time)
         delivery = pytz.timezone('Europe/Amsterdam').localize(delivery)
-        if delivery + datetime.timedelta(minutes= 1) < timezone.now():
-            raise forms.ValidationError('Laisse nous un peu de temps!')
+        #if delivery + datetime.timedelta(minutes= 1) < timezone.now():
+            #raise forms.ValidationError('Laisse nous un peu de temps!')
         if delivery_time < datetime.time(8,0,0) or delivery_time > datetime.time(20,0,0):
             raise forms.ValidationError('La hotline crêpes ne fonctionne que de 8h à 20h!')
 
@@ -74,8 +74,8 @@ class AperoForm(forms.ModelForm):
         delivery_time = self.cleaned_data['delivery_time']
         delivery = datetime.datetime.combine(timezone.now(), delivery_time)
         delivery = pytz.timezone('Europe/Amsterdam').localize(delivery)
-        if delivery + datetime.timedelta(minutes = 1) < timezone.now():
-            raise forms.ValidationError('Laisse nous un peu de temps!')
+        #if delivery + datetime.timedelta(minutes = 1) < timezone.now():
+            #raise forms.ValidationError('Laisse nous un peu de temps!')
         if delivery_time < datetime.time(18,30,0):
             raise forms.ValidationError('Les apéros ne sont livrés qu\'à partir de 18h30')
         if delivery_time > datetime.time(22,0,0):
