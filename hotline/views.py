@@ -28,7 +28,7 @@ def new_apero(request):
     form = AperoForm(request.POST or None, initial = {'delivery_time': timezone.now() + timedelta(hours = 2)})
     if form.is_valid():
         all_orders = Apero.objects.filter(user = request.user, delivery_date = timezone.now())
-        if len(all_orders) > 0:
+        if len(all_orders) > 5:
             messages.add_message(request, messages.ERROR, "Tu as déjà trop commandé!")
             return render(request,'home.html')
         if request.user.is_authenticated:
