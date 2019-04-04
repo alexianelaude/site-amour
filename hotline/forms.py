@@ -78,8 +78,8 @@ class AperoForm(forms.ModelForm):
             #raise forms.ValidationError('Laisse nous un peu de temps!')
         if delivery_time < datetime.time(18,30,0):
             raise forms.ValidationError('Les apéros ne sont livrés qu\'à partir de 18h30')
-        if delivery_time > datetime.time(22,0,0):
-            raise forms.ValidationError('Il n\'y a plus d\'apéros après 22h')
+        if delivery_time > datetime.time(21,0,0):
+            raise forms.ValidationError('Il n\'y a plus d\'apéros après 21h')
 
 
 class MemeForm(forms.ModelForm):
