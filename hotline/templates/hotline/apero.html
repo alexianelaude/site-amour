@@ -15,6 +15,7 @@
 {% block content %}
 
     {% if user.is_authenticated %}
+        Rupture de stocks de makis!!!! Mais vous pouvez encore commander des boissons ;)
 <form method="post"  action="{% url 'hotline:apero' %}">
                  {% csrf_token %}
                {{ form |crispy }}  <!-- form.as_p -->
