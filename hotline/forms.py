@@ -7,8 +7,8 @@ import pytz
 class CrepesForm(forms.ModelForm):
     class Meta:
         model = Crepes
-        fields = ['garniture','delivery_time', 'delivery_place', 'comment']
-        labels = {'delivery_time': 'Heure de livraison','delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?', 'garniture': 'Ta crêpe tu l\'aimes?'}
+        fields = ['garniture','delivery_time','quantity', 'delivery_place', 'comment']
+        labels = {'delivery_time': 'Heure de livraison','delivery_place': 'Lieu de livraison','quantity':'Combien de crêpes?','comment': 'Un petit commentaire?', 'garniture': 'Ta crêpe tu l\'aimes?'}
         widgets = {'garniture': forms.widgets.Select(choices=[('chocolat', 'Au chocolat fondu'), ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise"),('sucre','Au sucre'),('caramel','Au caramel')])}
 
     def clean(self):
