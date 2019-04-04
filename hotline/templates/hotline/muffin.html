@@ -13,7 +13,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-    <p>Une hotline muffin, tu en as rêvée, on l'a fait!</p>
+        <p>Une hotline muffin, tu en as rêvée, on l'a fait!</p>>
 <form method="post"  action="{% url 'hotline:muffin' %}">
                  {% csrf_token %}
                 {{ form | crispy }}  <!-- form.as_p -->

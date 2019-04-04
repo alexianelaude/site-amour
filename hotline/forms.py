@@ -8,7 +8,8 @@ class CrepesForm(forms.ModelForm):
     class Meta:
         model = Crepes
         fields = ['garniture','delivery_time', 'delivery_place', 'comment']
-        labels = {'delivery_time': 'Heure de livraison','delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?', 'garniture': 'Ta crêpe tu l\'aimes?'}
+        labels = {'delivery_time': "Heure de livraison, pour l'indiquer, merci de garder le format d'heure 'hh:mm' (par exemple 08:00) pour ne pas avoir d'erreur",
+                  'delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?', 'garniture': 'Ta crêpe tu l\'aimes?'}
         widgets = {'garniture': forms.widgets.Select(choices=[('chocolat', 'Au chocolat fondu'), ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise"),('sucre','Au sucre')])}
 
     def clean(self):
@@ -26,7 +27,7 @@ class PetitDejForm(forms.ModelForm):
     class Meta:
         model = PetitDej
         exclude = ['user','order_time', 'delivery_date','delivered']
-        labels = {'delivery_time': 'Heure de livraison',
+        labels = {'delivery_time': "Heure de livraison, pour indiquer l'heure de livraison, merci de garder le format d'heure 'hh:mm' (par exemple 08:00) pour ne pas avoir d'erreur",
                   'delivery_place': 'Ta chambre?',
                   'jus': 'Un petit jus?',
                   'boisson_chaude': 'Ta boisson de réconfort matinal?',
@@ -52,7 +53,7 @@ class AperoForm(forms.ModelForm):
         model = Apero
         fields = ['quantity','delivery_time', 'delivery_place', 'vin', 'biere', 'cidre', 'cocktail', 'virgin_cocktail','vege','comment']
         labels = {'quantity': 'Combien de personnes?',
-                  'delivery_time': 'Heure de livraison',
+                  'delivery_time': "Heure de livraison: pour indiquer l'heure de livraison, merci de garder le format d'heure 'hh:mm' (par exemple 08:00) pour ne pas avoir d'erreur",
                   'delivery_place': 'Lieu de livraison',
                   'vin': 'Combien de verres de vin?',
                   'biere': 'Combien de demis de bière?',
@@ -93,7 +94,7 @@ class MuffinForm(forms.ModelForm):
     class Meta:
         model = Muffin
         fields = ['delivery_time', 'delivery_place', 'gout_muffin', 'comment']
-        labels = {'delivery_time': 'Heure de livraison: donne une heure entre 16 et 17h',
+        labels = {'delivery_time': "Heure de livraison: donne une heure entre 16 et 17h, pour indiquer l'heure de livraison, merci de garder le format d'heure 'hh:mm' (par exemple 08:00) pour ne pas avoir d'erreur",
                   'delivery_place': 'Ta chambre?',
                   'gout_muffin': 'Ton muffin tu le veux comment?',
                   'comment': 'Un petit commentaire?',}
