@@ -37,9 +37,9 @@ class PetitDejForm(forms.ModelForm):
                   'comment': 'Un petit commentaire?',}
         widgets = {'quatre_quart' : forms.widgets.Select(choices = ((True, 'Ouiiii'),(False, 'Non'))),
                    'gout_muffin': forms.widgets.Select(choices=[('chocolat', 'chocolat'), ('nature', 'nature'), ('abricot',"confiture d'abricot"),('fraise',"confiture de fraise"),("rien","Pas de muffin pour moi merci!")]),
-                   'jus': forms.widgets.Select(choices=[('orange','orange'),('pomme','pomme'),('raisin','raisin'),('rien','Pas de jus')]),
+                   'jus': forms.widgets.Select(choices=[('orange','orange'),('pomme','pomme'),('raisin','raisin'),('ananas','ananas'),('lait','Un grand verre de lait'),('rien','Pas de jus')]),
                    'boisson_chaude': forms.widgets.Select(choices = [('chocolat','Un bon chocolat chaud fait maison!'),('cafe','Un café Nespresso'),('the','Un thé vert'),('rien','Pas de boisson chaude')]),
-                   'tartine': forms.widgets.Select(choices = [('abricot',"confiture d'abricot"),('fraise',"confiture de fraise"),('beurre','beurre'),('rien','Pas de tartines vous me gâtez déjà trop!')]),
+                   'tartine': forms.widgets.Select(choices = [('abricot',"confiture d'abricot"),('fraise',"confiture de fraise"),('miel','miel'),('rien','Pas de tartines vous me gâtez déjà trop!')]),
                    'compote': forms.widgets.Select(choices = [('pomme','La classique pomme-vanille'),('poire',"Pomme-poire"),('rien','Pas de compote')])}
 
     def clean(self):
