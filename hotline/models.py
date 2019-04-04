@@ -20,7 +20,6 @@ class Hotline(models.Model):
         abstract = True
 
 class Crepes(Hotline):
-    quantity = models.IntegerField(default = 1, validators = [MaxValueValidator(5),MinValueValidator(1)])
     garniture = models.CharField(max_length = 300)
 
 class Apero(Hotline):
