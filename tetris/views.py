@@ -25,7 +25,6 @@ def add_score(request):
     print(score.score)
     # TODO : add CSRF check
 
-    score.save()
     return JsonResponse({"status": "ok"})
 
 def get_scores(request):
