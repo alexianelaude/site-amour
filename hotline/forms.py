@@ -58,8 +58,8 @@ class AperoForm(forms.ModelForm):
                   'vin': 'Combien de verres de vin?',
                   'biere': 'Combien de demis de bière?',
                   'cidre': 'Combien de verres de cidre?',
-                  'cocktail': 'Combien de verres de saké?',
-                  'virgin_cocktail': 'Combien de verres du sirop de litchi pour démarrer la soirée en douceur?',
+                  'cocktail': 'Combien de verres de pastis?',
+                  'virgin_cocktail': 'Combien de verres de cocktail gingembre-basilic pour démarrer la soirée en douceur?',
                   'vege': 'Combien de personnes sont végétariennes parmi vous?',
                   'comment': 'Un petit commentaire?'}
 
