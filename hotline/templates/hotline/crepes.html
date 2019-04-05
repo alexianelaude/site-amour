@@ -14,7 +14,8 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <p>Pas de pâte à tartiner (sans huile de palme) à la Mine!</p>
+        Fermeture de la hotline crêpes pour aujourd'hui, revenez demain!
+       <!-- <p>Pas de pâte à tartiner (sans huile de palme) à la Mine!</p>
         <form method="post"  action="{% url 'hotline:crepes' %}">
                  {% csrf_token %}
                 {{ form |crispy }}
@@ -22,7 +23,7 @@
                 </form>
     {% else %}
     <p>Connecte toi pour commander un max de crêpes!</p>
-    {% endif %}
+    {% endif %} -->
 
 {% endblock %}
 
