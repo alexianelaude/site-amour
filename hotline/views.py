@@ -63,19 +63,24 @@ def new_meme(request):
     return render(request, 'hotline/meme.html', locals())
 
 def new_petitdej(request):
-    form = PetitDejForm(request.POST or None, initial = {'delivery_time': time(7,0,0)})
+    form = PetitDejForm(request.POST or None, initial = {'delivery_time': time(18,30,0)})
     if form.is_valid():
         all_orders = PetitDej.objects.filter(user = request.user)
         if len(all_orders) > 0:
-            messages.add_message(request, messages.ERROR, "Un seul petit dej par personne, désolé")
+            messages.add_message(request, messages.ERROR, "Un seul plateau par personne, désolé")
             return render(request,'home.html')
+        orders_today = PetitDej.objects.filter(delivery_date=timezone.now())
+        if len(orders_today) > 0:
+            messages.add_message(request, messages.ERROR,
+                                 "Trop de plateaux ont été commandés aujourd'hui, nos plus sincères excuses")
+            return render(request, 'home.html')
         if request.user.is_authenticated:
             hot = form.save(commit = False)
             hot.user = request.user
             hot.save()
-            messages.add_message(request, messages.SUCCESS, 'Nous avons bien recu votre commande, amusez vous sur le site en attendant votre petit dej')
+            messages.add_message(request, messages.SUCCESS, 'Nous avons bien recu votre commande, amusez vous sur le site en attendant votre plateau')
             return redirect(reverse('home'))
-    return render(request, 'hotline/petitdej.html', locals())
+    return render(request, 'hotline/huitres.html', locals())
 
 def new_muffin(request):
     form = MuffinForm(request.POST or None, initial = {'delivery_time': time(16,0,0)})

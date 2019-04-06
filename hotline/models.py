@@ -37,12 +37,12 @@ class Meme(models.Model):
     comment = models.TextField(null = True, blank = True)
 
 class PetitDej(Hotline):
-    gout_muffin = models.CharField(max_length = 500)
-    compote = models.CharField(max_length = 300)
+    gout_muffin = models.CharField(default = 'rien', max_length = 500)
+    compote = models.CharField(default = 'rien', max_length = 300)
     quatre_quart = models.BooleanField (default = True)
-    boisson_chaude = models.CharField(max_length = 500)
-    jus = models.CharField(max_length = 500)
-    tartine = models.CharField(max_length = 500)
+    boisson_chaude = models.CharField(default = 'rien', max_length = 500)
+    jus = models.CharField(default = 'rien', max_length = 500)
+    tartine = models.CharField(default = 'rien', max_length = 500)
 
 class Muffin(Hotline):
     gout_muffin = models.CharField(max_length = 500)

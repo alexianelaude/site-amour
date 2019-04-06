@@ -10,7 +10,7 @@ class CrepesForm(forms.ModelForm):
         fields = ['garniture','delivery_time', 'delivery_place', 'comment']
         labels = {'delivery_time': "Heure de livraison, pour l'indiquer, merci de garder le format d'heure 'hh:mm' (par exemple 08:00) pour ne pas avoir d'erreur",
                   'delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?', 'garniture': 'Ta crêpe tu l\'aimes?'}
-        widgets = {'garniture': forms.widgets.Select(choices=[('compote','A la compote fait maison!'),('chocolat', 'Au chocolat fondu'), ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise"),('sucre','Au sucre'),('sucre-citron', 'Sucre-citron'),('miel','Au miel'),('nut','À la pâte à tartiner sans huile de palme')])}
+        widgets = {'garniture': forms.widgets.Select(choices=[('chocolat', 'Au chocolat fondu'), ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise"),('sucre','Au sucre'),('sucre-citron', 'Sucre-citron'),('miel','Au miel'),('nut','À la pâte à tartiner sans huile de palme')])}
 
     def clean(self):
         delivery_date = timezone.now()
@@ -20,33 +20,21 @@ class CrepesForm(forms.ModelForm):
         #if delivery + datetime.timedelta(minutes= 1) < timezone.now():
             #raise forms.ValidationError('Laisse nous un peu de temps!')
         if delivery_time < datetime.time(8,0,0) or delivery_time > datetime.time(20,0,0):
-            raise forms.ValidationError('La hotline crêpes ne fonctionne que de 8h à 20h!')
+            raise forms.ValidationError('La hotline crêpes ne fonctionne que de 14h à 20h!')
 
 
 class PetitDejForm(forms.ModelForm):
     class Meta:
         model = PetitDej
-        exclude = ['user','order_time', 'delivery_date','delivered']
+        fields = ['delivery_time', 'delivery_place']
         labels = {'delivery_time': "Heure de livraison, pour indiquer l'heure de livraison, merci de garder le format d'heure 'hh:mm' (par exemple 08:00) pour ne pas avoir d'erreur",
                   'delivery_place': 'Ta chambre?',
-                  'jus': 'Un petit jus?',
-                  'boisson_chaude': 'Ta boisson de réconfort matinal?',
-                  'gout_muffin': 'Ton muffin tu le veux comment?',
-                  'quatre_quart': 'Une tranche de quatre quart ça te tente?',
-                  'compote':'Tu désires un peu de compote maison?',
-                  'tartine': 'Une tartine pour accompagner tout ça?',
                   'comment': 'Un petit commentaire?',}
-        widgets = {'quatre_quart' : forms.widgets.Select(choices = ((True, 'Ouiiii'),(False, 'Non'))),
-                   'gout_muffin': forms.widgets.Select(choices=[('chocolat', 'chocolat'), ('nature', 'nature'), ('abricot',"confiture d'abricot"),('fraise',"confiture de fraise"),("rien","Pas de muffin pour moi merci!")]),
-                   'jus': forms.widgets.Select(choices=[('orange','orange'),('pomme','pomme'),('raisin','raisin'),('ananas','ananas'),('lait','Un grand verre de lait'),('rien','Pas de jus')]),
-                   'boisson_chaude': forms.widgets.Select(choices = [('chocolat','Un bon chocolat chaud fait maison!'),('cafe','Un café Nespresso'),('the','Un thé vert'),('rien','Pas de boisson chaude')]),
-                   'tartine': forms.widgets.Select(choices = [('abricot',"confiture d'abricot"),('fraise',"confiture de fraise"),('miel','miel'),('rien','Pas de tartines vous me gâtez déjà trop!')]),
-                   'compote': forms.widgets.Select(choices = [('pomme','La classique pomme-vanille'),('poire',"Pomme-poire"),('rien','Pas de compote')])}
 
     def clean(self):
         delivery_time = self.cleaned_data['delivery_time']
-        if (delivery_time < datetime.time(7,0,0)) or (delivery_time > datetime.time(9,30,0)):
-            raise forms.ValidationError("Choisis une heure entre 7h et 9h30 s'il te plaît")
+        if (delivery_time < datetime.time(18,30,0)) or (delivery_time > datetime.time(20,0,0)):
+            raise forms.ValidationError("Choisis une heure entre 18h30 et 20h s'il te plaît")
 
 class AperoForm(forms.ModelForm):
     class Meta:

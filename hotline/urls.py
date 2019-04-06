@@ -11,5 +11,6 @@ urlpatterns = [
     path('meme/', views.new_meme, name = 'meme'),
     path('muffin/', views.new_muffin, name='muffin'),
     path('', TemplateView.as_view(template_name = 'hotline/home.html'), name ='home'),
-    path('meme/display', TemplateView.as_view(template_name='hotline/meme_display.html'), name = 'meme_display')
+    path('meme/display', TemplateView.as_view(template_name='hotline/meme_display.html'), name = 'meme_display'),
+    path('tel', TemplateView.as_view(template_name = 'hotline/tel.html'), name = 'tel')
 ]

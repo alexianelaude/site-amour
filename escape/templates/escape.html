@@ -13,7 +13,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-    <p>Inscrivez-vous à notre Escape Game, imaginé de toute pièce par notre équipe. Chaque partie dure au MAXIMUM une demi-heure (moins si vous êtes rapides!) et se joue à quatre joueurs.</p>
+    <p>Inscrivez-vous à notre Escape Game, imaginé de toute pièce par notre équipe. Chaque partie dure au MAXIMUM une demi-heure (moins si vous êtes rapides!) et se joue à quatre joueurs. Il n'y a pas d'escape game aujourd'hui (samedi), mais vous pouvez dès à présent réserver pour dimanche</p>
         <form method="post"  action="{% url 'escape:escape' %}">
                  {% csrf_token %}
                 {{ form |crispy }}

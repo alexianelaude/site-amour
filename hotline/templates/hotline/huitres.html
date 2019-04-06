@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Petit Dej</title>
+</head>
+<body>
+{% block title %}Le plateau d'huîtres des Camin'{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        Le lancement de la hotline huître arrive sous peu, attendez le mail!!
+       <!-- <p>Commandez dès à présent un plateau d'huitres!!! Il y a 4 huitres par personne, et une personne ne peut commander qu'UN SEUL plateau<br>
+        Attention: il n'y a que 25 plateaux au total, ceci est un PAPS</p>
+<form method="post"  action="{% url 'hotline:petitdej' %}">
+                 {% csrf_token %}
+                {{ form |crispy }}  <!-- form.as_p -->
+                <input type="submit" class="btn btn-success" value = "Commander"/>
+                </form>
+    {% else %}
+    <p>Connecte toi pour commander ton petit dej du vendredi matin</p> -->
+    {% endif %}
+
+{% endblock %}
+</body>
+</html>
