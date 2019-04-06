@@ -10,7 +10,7 @@ class CrepesForm(forms.ModelForm):
         fields = ['garniture','delivery_time', 'delivery_place', 'comment']
         labels = {'delivery_time': "Heure de livraison, pour l'indiquer, merci de garder le format d'heure 'hh:mm' (par exemple 08:00) pour ne pas avoir d'erreur",
                   'delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?', 'garniture': 'Ta crêpe tu l\'aimes?'}
-        widgets = {'garniture': forms.widgets.Select(choices=[('chocolat', 'Au chocolat fondu'), ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise"),('sucre','Au sucre'),('sucre-citron', 'Sucre-citron'),('miel','Au miel'),('erable',"Au sirop d'érable")])}
+        widgets = {'garniture': forms.widgets.Select(choices=[ ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise"),('sucre','Au sucre'),('sucre-citron', 'Sucre-citron'),('miel','Au miel'),('erable',"Au sirop d'érable")])}
 
     def clean(self):
         delivery_date = timezone.now()
