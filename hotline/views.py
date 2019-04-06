@@ -66,7 +66,7 @@ def new_petitdej(request):
     form = PetitDejForm(request.POST or None, initial = {'delivery_time': time(18,30,0)})
     if form.is_valid():
         all_orders = PetitDej.objects.filter(user = request.user)
-        if len(all_orders) > 0:
+        if len(all_orders) > 24:
             messages.add_message(request, messages.ERROR, "Un seul plateau par personne, désolé")
             return render(request,'home.html')
         orders_today = PetitDej.objects.filter(delivery_date=timezone.now())
