@@ -15,13 +15,14 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-<form method="post"  action="{% url 'hotline:apero' %}">
+        Il n'y a plus d'apéro pour ce soir. Vous avez éclaté nos 600 doigts de Fatma, apparamment ca vous a plu :) Nous espérons que tout le monde a pu y goûter..
+<!-- <form method="post"  action="{% url 'hotline:apero' %}">
                  {% csrf_token %}
-               {{ form |crispy }}  <!-- form.as_p -->
+               {{ form |crispy }}
                 <input type="submit" class="btn btn-success" value = "Commander"/>
                 </form>
     {% else %}
-    <p>Connecte toi pour profiter d'apéros ultra qualis!</p>
+    <p>Connecte toi pour profiter d'apéros ultra qualis!</p> -->
     {% endif %}
 
 {% endblock %}
