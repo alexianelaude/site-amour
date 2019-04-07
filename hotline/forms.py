@@ -65,10 +65,10 @@ class AperoForm(forms.ModelForm):
         delivery = pytz.timezone('Europe/Amsterdam').localize(delivery)
         #if delivery + datetime.timedelta(minutes = 1) < timezone.now():
             #raise forms.ValidationError('Laisse nous un peu de temps!')
-        if delivery_time < datetime.time(18,30,0):
-            raise forms.ValidationError('Les apéros ne sont livrés qu\'à partir de 18h30')
-        if delivery_time > datetime.time(21,0,0):
-            raise forms.ValidationError('Il n\'y a plus d\'apéros après 21h')
+        if delivery_time < datetime.time(18,0,0):
+            raise forms.ValidationError('Les apéros ne sont livrés qu\'à partir de 18h')
+        if delivery_time > datetime.time(20,15,0):
+            raise forms.ValidationError('Il n\'y a plus d\'apéros après 20h15')
 
 
 class MemeForm(forms.ModelForm):
