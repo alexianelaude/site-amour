@@ -13,8 +13,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        Le PAPS huître va être lancé dans l'après-midi, restez connecté sur Facebook pour l'heure!
-      <!-- <p>Commandez dès à présent un plateau d'huitres!!! Il y a 4 huitres par personne, et une personne ne peut commander qu'UN SEUL plateau<br>
+        <p>Commandez dès à présent un plateau d'huitres!!! Il y a 4 huitres par personne, et une personne ne peut commander qu'UN SEUL plateau<br>
         Attention: il n'y a que 25 plateaux au total, ceci est un PAPS</p>
 <form method="post"  action="{% url 'hotline:petitdej' %}">
                  {% csrf_token %}
@@ -22,7 +21,7 @@
                 <input type="submit" class="btn btn-success" value = "Commander"/>
                 </form>
     {% else %}
-    <p>Connecte toi pour commander ton plateau d'huitre </p> -->
+    <p>Connecte toi pour commander ton plateau d'huitre </p>
     {% endif %}
 
 {% endblock %}

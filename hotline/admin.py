@@ -18,7 +18,7 @@ admin.site.register(Crepes, CrepesAdmin)
 
 class AperoAdmin(admin.ModelAdmin):
     list_display = ('delivery_time', 'delivery_place','order_time','user','quantity','vin','biere','cidre','cocktail','virgin_cocktail','vege', 'delivered','comment')
-    list_filter = ('delivery_place','delivered')
+    list_filter = ('delivery_date','delivered')
     ordering = ('delivery_time',)
     actions = [make_delivered]
 
