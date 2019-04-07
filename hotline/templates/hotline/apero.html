@@ -15,7 +15,6 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-        Pour cause d'Octobattle, les apéros sont servis de 18h à 20h15 ce soir!
 <<form method="post"  action="{% url 'hotline:apero' %}">
                  {% csrf_token %}
                {{ form |crispy }}
