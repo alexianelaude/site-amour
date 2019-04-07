@@ -15,14 +15,13 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-        Fin de la hotline pour aujourd'hui, désolé!
-       <!-- <form method="post"  action="{% url 'hotline:crepes' %}">
+        <form method="post"  action="{% url 'hotline:crepes' %}">
                  {% csrf_token %}
                 {{ form |crispy }}
                 <input type="submit" class="btn btn-success" value = "Commander"/>
                 </form>
     {% else %}
-    <p>Connecte toi pour commander un max de crêpes!</p> --
+    <p>Connecte toi pour commander un max de crêpes!</p>
     {% endif %}
 
 {% endblock %}

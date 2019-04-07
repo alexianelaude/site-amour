@@ -19,8 +19,8 @@ class CrepesForm(forms.ModelForm):
         delivery = pytz.timezone('Europe/Amsterdam').localize(delivery)
         #if delivery + datetime.timedelta(minutes= 1) < timezone.now():
             #raise forms.ValidationError('Laisse nous un peu de temps!')
-        if delivery_time < datetime.time(8,0,0) or delivery_time > datetime.time(20,0,0):
-            raise forms.ValidationError('La hotline crêpes ne fonctionne que de 14h à 20h!')
+        if delivery_time < datetime.time(8,0,0) or delivery_time > datetime.time(19,0,0):
+            raise forms.ValidationError('La hotline crêpes ne fonctionne que de 14h à 19h!')
 
 
 class PetitDejForm(forms.ModelForm):
