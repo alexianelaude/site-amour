@@ -15,6 +15,7 @@
 {% block content %}
 
     {% if user.is_authenticated %}
+        Plein de nouveaux parfums aujourd'hui, profitez-en! Attention, pour ceux qui sont à la Mine, la lemon curd et les pommes-choco ne sont malheureusement pas dispos :(
         <form method="post"  action="{% url 'hotline:crepes' %}">
                  {% csrf_token %}
                 {{ form |crispy }}

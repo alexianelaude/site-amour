@@ -10,7 +10,7 @@ class CrepesForm(forms.ModelForm):
         fields = ['garniture','delivery_time', 'delivery_place', 'comment']
         labels = {'delivery_time': "Heure de livraison, pour l'indiquer, merci de garder le format d'heure 'hh:mm' (par exemple 08:00) pour ne pas avoir d'erreur",
                   'delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?', 'garniture': 'Ta crêpe tu l\'aimes?'}
-        widgets = {'garniture': forms.widgets.Select(choices=[ ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise"),('chocolat','Au chocolat fondu'),('sucre','Au sucre'),('sucre-citron', 'Sucre-citron'),('miel','Au miel'),('erable',"Au sirop d'érable")])}
+        widgets = {'garniture': forms.widgets.Select(choices=[ ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise"),('chocolat','Au chocolat fondu'),('sucre','Au sucre'),('sucre-citron', 'Sucre-citron'),('miel','Au miel'),('erable',"Au sirop d'érable"),('caramel',"Au caramel beurre-salé"),('banane-choc',"Banane-choco"),('pomme-choc',"Pomme-choco"),('lemon-curd',"Lemon curd faite maison!")])}
 
     def clean(self):
         delivery_date = timezone.now()
@@ -46,8 +46,8 @@ class AperoForm(forms.ModelForm):
                   'vin': 'Combien de verres de vin?',
                   'biere': 'Combien de demis de bière?',
                   'cidre': 'Combien de verres de cidre?',
-                  'cocktail': 'Combien de verres de margharita?',
-                  'virgin_cocktail': 'Combien de verres de margharita sans alcool (au cranberry)',
+                  'cocktail': 'Combien de verres de mojito (le fameux que tu as tant apprécié au before de jeudi)?',
+                  'virgin_cocktail': 'Combien de verres de mojito sans alcool ?',
                   'vege': 'Combien de personnes sont végétariennes parmi vous?',
                   'comment': 'Un petit commentaire?'}
 
