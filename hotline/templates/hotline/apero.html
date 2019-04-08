@@ -15,6 +15,7 @@
 {% block content %}
 
     {% if user.is_authenticated %}
+        Plus de bière, désolé!
 <<form method="post"  action="{% url 'hotline:apero' %}">
                  {% csrf_token %}
                {{ form |crispy }}
