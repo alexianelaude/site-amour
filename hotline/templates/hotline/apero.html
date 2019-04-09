@@ -15,7 +15,8 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-        Plus de cidre, désolé!
+        Plus de cidre, désolé! <br>
+        L'apéro ferme à 20h45 pour que vous soyez à l'heure à la soirée des Polas!
 <<form method="post"  action="{% url 'hotline:apero' %}">
                  {% csrf_token %}
                {{ form |crispy }}
