@@ -15,14 +15,15 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-        Plein de nouveaux parfums aujourd'hui, profitez-en! Attention, pour ceux qui sont à la Mine, les pommes-choco ne sont malheureusement pas dispos :(
+        Fin de la hotline crêpes pour aujourd'hui, revenez demain!
+        <!--
         <form method="post"  action="{% url 'hotline:crepes' %}">
                  {% csrf_token %}
                 {{ form |crispy }}
                 <input type="submit" class="btn btn-success" value = "Commander"/>
                 </form>
     {% else %}
-    <p>Connecte toi pour commander un max de crêpes!</p>
+    <p>Connecte toi pour commander un max de crêpes!</p> -->
     {% endif %}
 
 {% endblock %}
