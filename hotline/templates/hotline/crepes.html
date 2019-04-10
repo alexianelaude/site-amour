@@ -15,6 +15,7 @@
 {% block content %}
 
     {% if user.is_authenticated %}
+        Les crêpes flambées arrivent à la Meuh!! (que jusqu'à 18h30, après c'est l'exclu apéro des Polas)
         Aujourd'hui c'est open crêpes aux saveurs inédites, livrez-nous vos désirs les plus fous en commentaires, on pourra (certainement) les satisfaire! <br>
         Attention pour les livraisons à la Mine, on reste sur les classiques chocolat-confiture (et choco banane!)
         <form method="post"  action="{% url 'hotline:crepes' %}">

@@ -10,7 +10,7 @@ class CrepesForm(forms.ModelForm):
         fields = ['garniture','delivery_time', 'delivery_place', 'comment']
         labels = {'delivery_time': "Heure de livraison, pour l'indiquer, merci de garder le format d'heure 'hh:mm' (par exemple 08:00) pour ne pas avoir d'erreur",
                   'delivery_place': 'Lieu de livraison','comment': 'Un petit commentaire?', 'garniture': 'Ta crêpe tu l\'aimes?'}
-        widgets = {'garniture': forms.widgets.Select(choices=[ ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise"),('chocolat','Au chocolat fondu'),('sucre','Au sucre'),('sucre-citron', 'Sucre-citron'),('miel','Au miel'),('erable',"Au sirop d'érable"),('caramel',"Au caramel beurre-salé"),('banane-choc',"Banane-choco"),('pomme-choc',"Pomme-choco"),('poire-choco',"Poire-choco"),('coco',"Noix de coco rapée"),('amande-choco',"Amande effilées et chocolat"),('glace',"Glace au citron"),('creme-marron',"Crème de marron")])}
+        widgets = {'garniture': forms.widgets.Select(choices=[ ('nature', 'Nature'), ('abricot', "À la confiture d'abricot"),('fraise', "À la confiture de fraise"),('chocolat','Au chocolat fondu'),('sucre','Au sucre'),('sucre-citron', 'Sucre-citron'),('miel','Au miel'),('erable',"Au sirop d'érable"),('caramel',"Au caramel beurre-salé"),('banane-choc',"Banane-choco"),('pomme-choc',"Pomme-choco"),('poire-choco',"Poire-choco"),('coco',"Noix de coco rapée"),('amande-choco',"Amande effilées et chocolat"),('glace',"Glace au citron"),('creme-marron',"Crème de marron"),('flambee',"Une crêpes flambée!!! Incroyable!!")])}
 
     def clean(self):
         delivery_date = timezone.now()
@@ -19,8 +19,8 @@ class CrepesForm(forms.ModelForm):
         delivery = pytz.timezone('Europe/Amsterdam').localize(delivery)
         #if delivery + datetime.timedelta(minutes= 1) < timezone.now():
             #raise forms.ValidationError('Laisse nous un peu de temps!')
-        if delivery_time < datetime.time(8,0,0) or delivery_time > datetime.time(19,0,0):
-            raise forms.ValidationError('La hotline crêpes ne fonctionne que de 8h à 19h!')
+        if delivery_time < datetime.time(8,0,0) or delivery_time > datetime.time(18,30,0):
+            raise forms.ValidationError('La hotline crêpes ne fonctionne que de 8h à 18h30! ')
 
 
 class PetitDejForm(forms.ModelForm):
