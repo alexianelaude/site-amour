@@ -13,8 +13,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        C'est la fin de notre escape game, nous espérons que vous l'avez apprécié!
-   <!-- <p>Inscrivez-vous à notre Escape Game, imaginé de toute pièce par notre équipe. Chaque partie dure au MAXIMUM une demi-heure (moins si vous êtes rapides!) et se joue à quatre joueurs. Il n'y a pas d'escape game aujourd'hui (samedi), mais vous pouvez dès à présent réserver pour dimanche</p>
+    <p>Inscrivez-vous à notre Escape Game, imaginé de toute pièce par notre équipe. Chaque partie dure au MAXIMUM une demi-heure (moins si vous êtes rapides!) et se joue à quatre joueurs. Il n'y a pas d'escape game aujourd'hui (samedi), mais vous pouvez dès à présent réserver pour dimanche</p>
         <form method="post"  action="{% url 'escape:escape' %}">
                  {% csrf_token %}
                 {{ form |crispy }}
@@ -23,7 +22,7 @@
     {% else %}
     <p>Connecte toi pour t'inscrire à l'escape game!</p>
     {% endif %}
-     auras plus de détails sur notre escape game très bientôt. Tu pourras notamment réserver un créneau Escape Game avec ton équipe à partir de jeudi -->
+     Tu auras plus de détails sur notre escape game très bientôt. Tu pourras notamment réserver un créneau Escape Game avec ton équipe à partir de jeudi
 {% endblock %}
 </body>
 </html>

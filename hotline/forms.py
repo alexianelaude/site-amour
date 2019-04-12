@@ -1,6 +1,6 @@
 from django import forms
 from django.utils import timezone
-from .models import Crepes, Apero, Meme, PetitDej, Muffin
+from .models import Crepes, Apero, PetitDej, Muffin
 import datetime
 import pytz
 
@@ -17,24 +17,43 @@ class CrepesForm(forms.ModelForm):
         delivery_time = self.cleaned_data['delivery_time']
         delivery = datetime.datetime.combine(delivery_date, delivery_time)
         delivery = pytz.timezone('Europe/Amsterdam').localize(delivery)
-        #if delivery + datetime.timedelta(minutes= 1) < timezone.now():
-            #raise forms.ValidationError('Laisse nous un peu de temps!')
-        if delivery_time < datetime.time(8,0,0) or delivery_time > datetime.time(18,30,0):
-            raise forms.ValidationError('La hotline crêpes ne fonctionne que de 8h à 18h30! ')
+        if delivery + datetime.timedelta(minutes= 1) < timezone.now():
+            raise forms.ValidationError('Laisse nous un peu de temps!')
+        if delivery_time < datetime.time(8,0,0) or delivery_time > datetime.time(20,0,0):
+            raise forms.ValidationError('La hotline crêpes ne fonctionne que de 8h à 20h! ')
 
 
 class PetitDejForm(forms.ModelForm):
     class Meta:
         model = PetitDej
-        fields = ['delivery_time', 'delivery_place']
+        exclude = ['user', 'delivery_date','order_time','delivered']
         labels = {'delivery_time': "Heure de livraison, pour indiquer l'heure de livraison, merci de garder le format d'heure 'hh:mm' (par exemple 08:00) pour ne pas avoir d'erreur",
                   'delivery_place': 'Ta chambre?',
+                  'gout_muffin':'Quel goût pour ton muffin?',
+                  'compote':'Quelle compote?',
+                  'quatre_quart': 'Une part de quatre quart?',
+                  'boisson_chaude':'Une boisson chaude?',
+                  'jus':'Un jus?',
+                  'tartine': 'Une tartine pour accompagner tout ca?',
                   'comment': 'Un petit commentaire?',}
+        widgets = {'gout_muffin': forms.widgets.Select(choices = [('chocolat','Au chocolat'),('confiture','A la confiture'),('nature','Nature'),('rien','Pas de muffin merci!')]),
+                   'compote': forms.widgets.Select(choices=[('pomme', 'Pomme'), ('poire', 'Pomme-poire'),('rien', 'Pas de compote merci!')]),
+                   'quatre_quart': forms.widgets.Select(
+                       choices=[(True, 'Ouiii'), (False, 'Non merci')]),
+                   'boisson_chaude': forms.widgets.Select(
+                       choices=[('cafe', 'Café Nespresso'), ('the', 'Thé'), ('chocolat', 'Chocolat chaud maison'),
+                                ('rien', 'Pas de boisson chaude merci!')]),
+                   'jus': forms.widgets.Select(
+                       choices=[('orange', 'Jus d\'orange'), ('ananas', 'Jus d\'ananas'), ('pomme', 'Jus de pomme'),
+                                ('rien', 'Pas de jus merci!')]),
+                   'tartine': forms.widgets.Select(
+                       choices=[('confiture', 'Avec de la confiture'), ('rien', 'Pas de tartines vous nous avez déjà trop gâtés!')])
+                   }
 
     def clean(self):
         delivery_time = self.cleaned_data['delivery_time']
-        if (delivery_time < datetime.time(18,30,0)) or (delivery_time > datetime.time(20,0,0)):
-            raise forms.ValidationError("Choisis une heure entre 18h30 et 20h s'il te plaît")
+        if (delivery_time < datetime.time(7,0,0)) or (delivery_time > datetime.time(9,30,0)):
+            raise forms.ValidationError("Choisis une heure entre 7h et 9h30 s'il te plaît")
 
 class AperoForm(forms.ModelForm):
     class Meta:
@@ -63,19 +82,14 @@ class AperoForm(forms.ModelForm):
         delivery_time = self.cleaned_data['delivery_time']
         delivery = datetime.datetime.combine(timezone.now(), delivery_time)
         delivery = pytz.timezone('Europe/Amsterdam').localize(delivery)
-        #if delivery + datetime.timedelta(minutes = 1) < timezone.now():
-            #raise forms.ValidationError('Laisse nous un peu de temps!')
+        if delivery + datetime.timedelta(minutes = 1) < timezone.now():
+            raise forms.ValidationError('Laisse nous un peu de temps!')
         if delivery_time < datetime.time(18,30,0):
             raise forms.ValidationError('Les apéros ne sont livrés qu\'à partir de 18h30')
-        if delivery_time > datetime.time(20,45,0):
-            raise forms.ValidationError('Il n\'y a plus d\'apéros après 20h45')
+        if delivery_time > datetime.time(21,0,0):
+            raise forms.ValidationError('Il n\'y a plus d\'apéros après 21h')
 
 
-class MemeForm(forms.ModelForm):
-    class Meta:
-        model = Meme
-        fields = ['comment']
-        labels = {'comment': "Un petit mot d'amour/ Une petite blague en échange?"}
 
 
 class MuffinForm(forms.ModelForm):

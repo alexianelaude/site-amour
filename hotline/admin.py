@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Crepes, Apero, Meme, PetitDej, Muffin
+from .models import Crepes, Apero, PetitDej, Muffin
 
 # Register your models here.
 
@@ -24,10 +24,6 @@ class AperoAdmin(admin.ModelAdmin):
 
 admin.site.register(Apero, AperoAdmin)
 
-class MemeAdmin(admin.ModelAdmin):
-    list_display = ('user', 'order_date', 'comment')
-
-admin.site.register(Meme, MemeAdmin)
 
 class PetitDejAdmin(admin.ModelAdmin):
     list_display = ('user', 'delivery_time','delivery_place','quatre_quart','compote','gout_muffin','tartine','jus','boisson_chaude','comment','delivered')

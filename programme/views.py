@@ -27,8 +27,10 @@ def vote(request, pk):
     if form.is_valid():
         if request.user.is_authenticated:
             comment = form.cleaned_data['comment']
+            note = form.cleaned_data['note']
             avis = get_object_or_404(Avis, mesure = mesure, user = request.user)
             avis.comment = comment
+            avis.note = note
             avis.save()
             messages.add_message(request, messages.SUCCESS, 'Votre commentaire a été enregistré, voici ceux des autres mineurs')
             return redirect(reverse('programme:detail', args = [mesure.id]))

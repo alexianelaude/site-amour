@@ -31,10 +31,6 @@ class Apero(Hotline):
     virgin_cocktail = models.IntegerField(default = 0, validators = [MinValueValidator(0)])
     vege = models.IntegerField(default = 0, validators = [MinValueValidator(0)])
 
-class Meme(models.Model):
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
-    order_date = models.DateField(auto_now_add = True)
-    comment = models.TextField(null = True, blank = True)
 
 class PetitDej(Hotline):
     gout_muffin = models.CharField(default = 'rien', max_length = 500)

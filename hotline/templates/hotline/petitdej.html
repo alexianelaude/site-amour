@@ -6,20 +6,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Memes</title>
+    <title>Petit Dej</title>
 </head>
 <body>
-{% block title %}Hotline Memes{% endblock %}
+{% block title %}Le petit déj des Camin'{% endblock %}
 
 {% block content %}
-     {% if user.is_authenticated %}
-<form method="post"  action="{% url 'hotline:meme' %}">
+    {% if user.is_authenticated %}
+
+<form method="post"  action="{% url 'hotline:petitdej' %}">
                  {% csrf_token %}
-                {{ form |crispy }}  <!-- form.as_p -->
+                {{ form |crispy }}
                 <input type="submit" class="btn btn-success" value = "Commander"/>
                 </form>
     {% else %}
-    <p>Connecte toi pour commander recevoir des memes</p>
+    <p>Connecte toi pour commander ton petit déjeuner </p>
     {% endif %}
 
 {% endblock %}
